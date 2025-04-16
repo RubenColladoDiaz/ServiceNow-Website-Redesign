@@ -5,6 +5,7 @@ import Categories from "../components/Categories/Categories";
 
 const Home: React.FC = () => {
   const [randomImage, setRandomImage] = useState<string>("");
+  const [isTransitioning, setIsTransitioning] = useState<boolean>(false);
 
   const products: string[] = [
     "https://di2ponv0v5otw.cloudfront.net/posts/2023/10/26/653adcd892e4916146702c21/m_wp_653adce7eb7e7a9729cbc128.webp",
@@ -18,15 +19,21 @@ const Home: React.FC = () => {
     "https://ih1.redbubble.net/image.3037954562.8689/ssrco,slim_fit_t_shirt,flatlay,101010:01c5ca27c6,front,wide_portrait,750x1000-bg,f8f8f8.u1.jpg",
   ];
 
-  const randomProduct = (): string => {
-    const randomNumber: number = Math.floor(Math.random() * products.length);
-    return products[randomNumber];
-  };
-
   useEffect(() => {
+    let randomNumber: number = Math.floor(Math.random() * products.length);
+    setRandomImage(products[randomNumber]);
+    const randomProduct = (): string => {
+      randomNumber = Math.floor(Math.random() * products.length);
+      return products[randomNumber];
+    };
+
     const interval = setInterval(() => {
-      setRandomImage(randomProduct());
-    }, 2000);
+      setIsTransitioning(true);
+      setTimeout(() => {
+        setRandomImage(randomProduct());
+        setIsTransitioning(false);
+      }, 800);
+    }, 4000);
     return () => clearInterval(interval);
   }, []);
 
@@ -38,11 +45,15 @@ const Home: React.FC = () => {
           alt="ServiceNow Logo"
           className="w-7xl"
         />
-        <img
-          src={randomImage}
-          alt="Products slider"
-          className="rounded-3xl w-[550px] h-[550px] object-cover"
-        />
+        <div className="relative w-[550px] h-[550px]">
+          <img
+            src={randomImage}
+            alt="Products slider"
+            className={`rounded-3xl w-full h-full object-cover transition-opacity duration-1000 ${
+              isTransitioning ? "opacity-0" : "opacity-100"
+            }`}
+          />
+        </div>
       </div>
       <ProductsOfTheMonth />
       <Categories />

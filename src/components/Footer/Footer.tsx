@@ -11,7 +11,7 @@ import { Link } from "react-router-dom";
 
 const Footer: React.FC = () => {
   return (
-    <div className="flex justify-between items-center bg-green-600 p-10">
+    <div className="flex justify-between items-center bg-green-600 p-10 px-28">
       <div className="flex items-center gap-4">
         <img
           className="h-6"
