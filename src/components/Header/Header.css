@@ -1,0 +1,7 @@
+.header-background-color {
+  background-color: #457e33;
+}
+
+input[type="button"]:hover {
+  background-color: #2c5120;
+}

@@ -1,5 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
+import ProductsOfTheMonth from "../components/ProductsOfTheMonth/ProductsOfTheMonth";
+import Categories from "../components/Categories/Categories";
 
 const Home: React.FC = () => {
   const [randomImage, setRandomImage] = useState<string>("");
@@ -17,7 +19,7 @@ const Home: React.FC = () => {
   ];
 
   const randomProduct = (): string => {
-    let randomNumber: number = Math.floor(Math.random() * products.length);
+    const randomNumber: number = Math.floor(Math.random() * products.length);
     return products[randomNumber];
   };
 
@@ -42,28 +44,8 @@ const Home: React.FC = () => {
           className="rounded-3xl w-[550px] h-[550px] object-cover"
         />
       </div>
-      <div className="text-center bg-green-600">
-        <p className="text-7xl pt-10 pb-10 font-sans font-light font-bold tracking-tight text-white">
-          PRODUCTS OF THE MONTH
-        </p>
-        <div className="flex items-center justify-center gap-4 pb-24">
-          <img
-            src="https://src1.ilogo.in/new_upload/2024/0302/1706944416172712021762549/1706945228/back_design_idea.webp"
-            alt="top 2"
-            className="w-[480px] rounded-3xl h-[480px] object-cover cursor-pointer"
-          />
-          <img
-            src="https://www.servicenow.com/community/s/cgfwn76974/attachments/cgfwn76974/developer-blog/2660/1/Shirt.png"
-            alt="top 1"
-            className="w-[480px] rounded-3xl h-[480px] object-cover cursor-pointer"
-          />
-          <img
-            src="https://di2ponv0v5otw.cloudfront.net/posts/2023/10/26/653adcd892e4916146702c21/m_wp_653adce7eb7e7a9729cbc128.webp"
-            alt="top 3"
-            className="w-[480px] rounded-3xl h-[480px] object-cover cursor-pointer"
-          />
-        </div>
-      </div>
+      <ProductsOfTheMonth />
+      <Categories />
     </div>
   );
 };
