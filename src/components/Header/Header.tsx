@@ -2,7 +2,11 @@ import { NavLink } from "react-router-dom";
 import React, { useEffect, useRef, useState } from "react";
 import "./Header.css";
 
+import { useIconImageContext } from "../../context/IconImageContext";
+import { useLogoImageContext } from "../../context/LogoImageContext";
+
 function SearchToggle() {
+  const { iconImages } = useIconImageContext();
   // For the appearance of the input when the lens is clicked, we make a boolean initialized in false
   const [isSearching, setIsSearching] = useState(false);
   // We make a reference for the input element in DOM
@@ -35,8 +39,8 @@ function SearchToggle() {
         >
           <img
             className="w-6 h-6 brightness-0 invert"
-            src="https://www.servicenow.com/content/dam/servicenow-assets/images/naas/search-icon.svg"
-            alt="Search icon"
+            src={iconImages[2].path}
+            alt={iconImages[2].alt}
           />
         </div>
       )}
@@ -45,6 +49,7 @@ function SearchToggle() {
 }
 
 const Header: React.FC = () => {
+  const { logoImages } = useLogoImageContext();
   return (
     <header className="header-background-color w-screen font-poppins">
       <div className="px-4">
@@ -54,7 +59,7 @@ const Header: React.FC = () => {
               <NavLink to="/">
                 <img
                   className="w-32 h-auto ml-40"
-                  src="https://www.servicenow.com/content/dam/servicenow-assets/images/naas/servicenow-header-logo-white.svg"
+                  src={logoImages[0].path}
                   alt="ServiceNow Icon"
                 />
               </NavLink>

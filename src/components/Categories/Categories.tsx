@@ -1,12 +1,16 @@
 import React from "react";
 
+import { useProductImageContext } from "../../context/ProductImageContext";
+import { useIconImageContext } from "../../context/IconImageContext";
+
 const Categories: React.FC = () => {
+  const { productImages } = useProductImageContext();
+  const { iconImages } = useIconImageContext();
+
   const categoriesImages: { [key: string]: string } = {
-    Clothing:
-      "https://ih1.redbubble.net/image.4986081873.7764/ssrco,classic_tee,womens_02,0d162e:9880ee6111,front,product_square,x600.1u10.jpg",
-    Accessories: "https://pbs.twimg.com/media/GAOQwwMWEAADSOt.jpg:large",
-    Technology:
-      "https://img.freepik.com/fotos-premium/computadora-portatil-estante-verde-fondo-vertical-ilustracion-3d_118047-11729.jpg",
+    Clothing: productImages[4].path,
+    Accessories: productImages[1].path,
+    Technology: iconImages[1].path,
   };
 
   return (

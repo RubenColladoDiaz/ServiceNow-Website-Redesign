@@ -8,16 +8,14 @@ import {
   FaTiktok,
 } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { useLogoImageContext } from "../../context/LogoImageContext";
 
 const Footer: React.FC = () => {
+  const { logoImages } = useLogoImageContext();
   return (
     <div className="flex justify-between items-center bg-green-600 p-10 px-28">
       <div className="flex items-center gap-4">
-        <img
-          className="h-6"
-          src="https://www.servicenow.com/content/dam/servicenow-assets/images/naas/servicenow-header-logo.svg"
-          alt="ServiceNow Logo"
-        />
+        <img className="h-6" src={logoImages[1].path} alt={logoImages[1].alt} />
         <span className="text-base text-white text-opacity-50 ml-6">|</span>
         <p className="text-base ml-6 text-white">
           The world works with ServiceNow®
