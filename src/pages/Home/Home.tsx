@@ -1,9 +1,9 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import ProductsOfTheMonth from "../components/ProductsOfTheMonth/ProductsOfTheMonth";
-import Categories from "../components/Categories/Categories";
-import { useProductImageContext } from "../context/ProductImageContext";
-import { useLogoImageContext } from "../context/LogoImageContext";
+import ProductsOfTheMonth from "../../components/ProductsOfTheMonth/ProductsOfTheMonth";
+import Categories from "../../components/Categories/Categories";
+import { useProductImageContext } from "../../context/ProductImageContext";
+import { useLogoImageContext } from "../../context/LogoImageContext";
 
 const Home: React.FC = () => {
   const { logoImages } = useLogoImageContext();
