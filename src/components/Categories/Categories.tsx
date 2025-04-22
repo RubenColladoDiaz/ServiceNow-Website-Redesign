@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 
 import { useProductImageContext } from "../../context/ProductImageContext";
 import { useIconImageContext } from "../../context/IconImageContext";
@@ -7,10 +8,10 @@ const Categories: React.FC = () => {
   const { productImages } = useProductImageContext();
   const { iconImages } = useIconImageContext();
 
-  const categoriesImages: { [key: string]: string } = {
-    Clothing: productImages[4].path,
-    Accessories: productImages[1].path,
-    Technology: iconImages[1].path,
+  const categoriesImages: { [key: string]: { path: string; link: string } } = {
+    Clothing: { path: productImages[4].path, link: "/clothing" },
+    Accessories: { path: productImages[1].path, link: "/accessories" },
+    Technology: { path: iconImages[1].path, link: "/technology" },
   };
 
   return (
@@ -21,20 +22,21 @@ const Categories: React.FC = () => {
         </p>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pb-16">
-        {Object.entries(categoriesImages).map(([category, src], i) => (
-          <div
+        {Object.entries(categoriesImages).map(([category, data], i) => (
+          <NavLink
             key={i}
-            className="relative aspect-[3/4] cursor-pointer overflow-hidden rounded-2xl"
+            to={data.link}
+            className="relative aspect-[3/4] cursor-pointer overflow-hidden rounded-2xl block"
           >
             <img
-              src={src}
+              src={data.path}
               alt={`category ${category}`}
               className="w-full h-full object-cover hover:scale-110 transition-transform duration-300"
             />
             <p className="absolute bottom-0 left-0 w-full text-white text-3xl font-bold rounded-b-2xl py-3 bg-black bg-opacity-40 text-center">
               {category}
             </p>
-          </div>
+          </NavLink>
         ))}
       </div>
     </div>
