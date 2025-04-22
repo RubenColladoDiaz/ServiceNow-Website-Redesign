@@ -14,24 +14,24 @@ const Categories: React.FC = () => {
   };
 
   return (
-    <div>
+    <div className="container mx-auto px-4">
       <div>
-        <p className="text-7xl text-center pt-10 pb-10 font-sans font-bold tracking-tight text-white">
+        <p className="text-5xl text-center py-8 font-sans font-bold tracking-tight text-white">
           CATEGORIES
         </p>
       </div>
-      <div className="flex justify-center gap-20 pb-24">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pb-16">
         {Object.entries(categoriesImages).map(([category, src], i) => (
           <div
             key={i}
-            className="relative w-[480px] h-[880px] cursor-pointer overflow-hidden rounded-3xl"
+            className="relative aspect-[3/4] cursor-pointer overflow-hidden rounded-2xl"
           >
             <img
               src={src}
               alt={`category ${category}`}
               className="w-full h-full object-cover hover:scale-110 transition-transform duration-300"
             />
-            <p className="absolute bottom-0 left-0 w-full text-white text-7xl font-bold rounded-b-3xl py-4 bg-black bg-opacity-40">
+            <p className="absolute bottom-0 left-0 w-full text-white text-3xl font-bold rounded-b-2xl py-3 bg-black bg-opacity-40 text-center">
               {category}
             </p>
           </div>

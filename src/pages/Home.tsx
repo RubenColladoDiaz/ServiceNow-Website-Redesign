@@ -35,7 +35,7 @@ const Home: React.FC = () => {
         <img
           src={logoImages[0].path}
           alt={logoImages[0].path}
-          className="w-7xl"
+          className="w-[650px]"
         />
         <div className="relative w-[550px] h-[550px]">
           <img
