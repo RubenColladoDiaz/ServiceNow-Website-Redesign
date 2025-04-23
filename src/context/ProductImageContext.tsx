@@ -1,9 +1,12 @@
 import React, { createContext, useContext } from "react";
 import { ProductImageRoute } from "../types/productImagesRoute";
+import { ClothesImagesInterface } from "../types/productImagesRoute";
 import { productImagesRoutes } from "../data/productImagesRoutes";
+import { clothesImagesRoutes } from "../data/productImagesRoutes";
 
 interface ProductImageContextType {
   productImages: ProductImageRoute[];
+  clothesImages: ClothesImagesInterface[];
 }
 
 const ProductImageContext = createContext<ProductImageContextType | undefined>(
@@ -15,9 +18,11 @@ export const ProductImageProvider: React.FC<{ children: React.ReactNode }> = ({
 }) => {
   return (
     <ProductImageContext.Provider
-      value={{ productImages: productImagesRoutes }}
+      value={{
+        productImages: productImagesRoutes,
+        clothesImages: clothesImagesRoutes,
+      }}
     >
-      {" "}
       {children}
     </ProductImageContext.Provider>
   );
