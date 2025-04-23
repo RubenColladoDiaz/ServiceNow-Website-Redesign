@@ -23,6 +23,10 @@ function App() {
                   <Route path="/" element={<Home />} />
                   <Route path="/clothing" element={<Clothing />} />
                   <Route path="/clothing/:category" element={<Clothing />} />
+                  <Route
+                    path="/accessories/:category"
+                    element={<Accessories />}
+                  />
                   <Route path="/accessories" element={<Accessories />} />
                   <Route path="/technology" element={<Technology />} />
                 </Routes>

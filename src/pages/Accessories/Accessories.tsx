@@ -3,11 +3,11 @@ import { NavLink } from "react-router-dom";
 import SectionsBar from "../../components/SectionsBar/SectionsBar";
 
 const sections = [
-  { name: "Backpacks", path: "/clothing/backpacks" },
-  { name: "Caps", path: "/clothing/caps" },
-  { name: "Watches", path: "/clothing/watches" },
-  { name: "Rings", path: "/clothing/rings" },
-  { name: "Belts", path: "/clothing/belts" },
+  { name: "Backpacks", path: "/accessories/backpacks" },
+  { name: "Caps", path: "/accessories/caps" },
+  { name: "Watches", path: "/accessories/watches" },
+  { name: "Rings", path: "/accessories/rings" },
+  { name: "Belts", path: "/accessories/belts" },
 ];
 
 const Accessories: React.FC = () => {
