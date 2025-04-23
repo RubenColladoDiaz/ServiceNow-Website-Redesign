@@ -10,6 +10,7 @@ export const productImagesRoutes: ProductImageRoute[] = [
   { id: "6", path: "/images/servicenowTshirt3.avif", alt: "T-Shirt Image" },
   { id: "7", path: "/images/servicenowTshirt4.jpg", alt: "T-Shirt Image" },
   { id: "8", path: "/images/servicenowTshirt5.webp", alt: "T-Shirt Image" },
+  { id: "9", path: "/images/servicenowSweater2.jpg", alt: "Sweater Image" },
 ];
 
 export const clothesImagesRoutes: ClothesImagesInterface[] = [
@@ -19,7 +20,7 @@ export const clothesImagesRoutes: ClothesImagesInterface[] = [
     alt: "Sweater Image",
     title: "Badass Sweater",
     price: 49.99,
-    category: "jackets"
+    category: "jackets",
   },
   {
     id: "2",
@@ -27,7 +28,7 @@ export const clothesImagesRoutes: ClothesImagesInterface[] = [
     alt: "T-Shirt Image",
     title: "ServiceNow T-Shirt",
     price: 19.99,
-    category: "tshirts"
+    category: "tshirts",
   },
   {
     id: "3",
@@ -35,7 +36,7 @@ export const clothesImagesRoutes: ClothesImagesInterface[] = [
     alt: "T-Shirt Image",
     title: "ServiceNow T-Shirt",
     price: 24.99,
-    category: "tshirts"
+    category: "tshirts",
   },
   {
     id: "4",
@@ -43,7 +44,7 @@ export const clothesImagesRoutes: ClothesImagesInterface[] = [
     alt: "T-Shirt Image",
     title: "ServiceNow T-Shirt",
     price: 22.99,
-    category: "tshirts"
+    category: "tshirts",
   },
   {
     id: "5",
@@ -51,7 +52,7 @@ export const clothesImagesRoutes: ClothesImagesInterface[] = [
     alt: "T-Shirt Image",
     title: "ServiceNow T-Shirt",
     price: 21.99,
-    category: "tshirts"
+    category: "tshirts",
   },
   {
     id: "6",
@@ -59,6 +60,14 @@ export const clothesImagesRoutes: ClothesImagesInterface[] = [
     alt: "T-Shirt Image",
     title: "ServiceNow T-Shirt",
     price: 18.99,
-    category: "tshirts"
+    category: "tshirts",
+  },
+  {
+    id: "7",
+    path: "/images/servicenowSweater2.jpg",
+    alt: "Sweater Image",
+    title: "ServiceNow Sweater",
+    price: 38.99,
+    category: "jackets",
   },
 ];

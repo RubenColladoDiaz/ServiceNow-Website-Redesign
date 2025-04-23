@@ -14,7 +14,7 @@ const SectionsBar: React.FC = () => {
               <NavLink to="/clothing/shirts">Shirts</NavLink>
             </li>
             <li>
-              <NavLink to="/clothing/tshirts">Jackets</NavLink>
+              <NavLink to="/clothing/jackets">Jackets</NavLink>
             </li>
             <li>
               <NavLink to="/clothing/pants">Pants</NavLink>
