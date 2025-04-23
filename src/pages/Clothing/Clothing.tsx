@@ -1,5 +1,5 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { useParams, NavLink } from "react-router-dom";
 import SectionsBar from "../../components/SectionsBar/SectionsBar";
 import ClothingCard from "../../components/ClothingCard/ClothingCard";
 import { useProductImageContext } from "../../context/ProductImageContext";
@@ -10,14 +10,17 @@ const Clothing: React.FC = () => {
 
   let filteredClothes = clothesImages;
   if (category !== "all") {
-    filteredClothes = clothesImages.filter(item => item.category === category);
+    filteredClothes = clothesImages.filter(
+      (item) => item.category === category
+    );
   }
-
   return (
     <div className="mb-10">
-      <p className="text-center my-10 text-7xl font-sans font-bold tracking-tight text-white">
-        CLOTHING
-      </p>
+      <NavLink to="/clothing">
+        <p className="text-center my-10 text-7xl font-sans font-bold tracking-tight text-white">
+          CLOTHING
+        </p>
+      </NavLink>
       <SectionsBar />
       <div className="grid grid-cols-4 mt-10">
         {filteredClothes.map((item, index) => (

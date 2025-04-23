@@ -10,13 +10,21 @@ const Home: React.FC = () => {
   const { productImages } = useProductImageContext();
   const [randomImage, setRandomImage] = useState<string>("");
   const [isTransitioning, setIsTransitioning] = useState<boolean>(false);
+  const [lastImageIndex, setLastImageIndex] = useState<number>(-1);
 
   useEffect(() => {
     let randomNumber: number = Math.floor(Math.random() * productImages.length);
     setRandomImage(productImages[randomNumber].path);
+    setLastImageIndex(randomNumber);
+
     const randomProduct = (): string => {
-      randomNumber = Math.floor(Math.random() * productImages.length);
-      return productImages[randomNumber].path;
+      let newRandomNumber: number;
+      do {
+        newRandomNumber = Math.floor(Math.random() * productImages.length);
+      } while (newRandomNumber === lastImageIndex);
+      
+      setLastImageIndex(newRandomNumber);
+      return productImages[newRandomNumber].path;
     };
 
     const interval = setInterval(() => {
@@ -27,7 +35,7 @@ const Home: React.FC = () => {
       }, 800);
     }, 4000);
     return () => clearInterval(interval);
-  }, [productImages]);
+  }, [productImages, lastImageIndex]);
 
   return (
     <div>
