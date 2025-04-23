@@ -4,6 +4,14 @@ import SectionsBar from "../../components/SectionsBar/SectionsBar";
 import ClothingCard from "../../components/ClothingCard/ClothingCard";
 import { useProductImageContext } from "../../context/ProductImageContext";
 
+const sections = [
+  { name: "T-Shirts", path: "/clothing/tshirts" },
+  { name: "Shirts", path: "/clothing/shirts" },
+  { name: "Jackets", path: "/clothing/jackets" },
+  { name: "Pants", path: "/clothing/pants" },
+  { name: "Shoes", path: "/clothing/shoes" }
+];
+
 const Clothing: React.FC = () => {
   const { clothesImages } = useProductImageContext();
   const { category = "all" } = useParams<{ category: string }>();
@@ -21,7 +29,7 @@ const Clothing: React.FC = () => {
           CLOTHING
         </p>
       </NavLink>
-      <SectionsBar />
+      <SectionsBar sections={sections} />
       <div className="grid grid-cols-4 mt-10">
         {filteredClothes.map((item, index) => (
           <ClothingCard
