@@ -80,7 +80,7 @@ function SearchToggle() {
           <input
             ref={inputRef}
             type="text"
-            placeholder="Buscar productos..."
+            placeholder="Search products..."
             className="border border-white bg-transparent text-white placeholder-white rounded-full px-4 py-1 w-60 focus:outline-none focus:ring-2 focus:ring-white transition-all"
             value={searchText}
             onChange={(e) => {
