@@ -25,6 +25,18 @@ export const productImagesRoutes: ProductImageRoute[] = [
   { id: "21", path: "/images/servicenowShirt2.jpg", alt: "Shirt Image" },
   { id: "22", path: "/images/servicenowShirt3.webp", alt: "Shirt Image" },
   { id: "23", path: "/images/servicenowShirt4.jpg", alt: "Shirt Image" },
+  { id: "24", path: "/images/servicenowCap.jpg", alt: "Cap Image" },
+  { id: "25", path: "/images/servicenowWatch.jpeg", alt: "Watch Image" },
+  { id: "26", path: "/images/servicenowRing.jpeg", alt: "Ring Image" },
+  { id: "27", path: "/images/servicenowBelt.webp", alt: "Belt Image" },
+  { id: "28", path: "/images/servicenowLaptop.jpg", alt: "Laptop Image" },
+  { id: "29", path: "/images/servicenowMouse.jpg", alt: "Mouse Image" },
+  { id: "30", path: "/images/servicenowKeyboard.webp", alt: "Keyboard Image" },
+  {
+    id: "31",
+    path: "/images/servicenowHeadphones.jpeg",
+    alt: "Headphones Image",
+  },
 ];
 
 export const clothesImagesRoutes: ClothesImagesInterface[] = [
@@ -195,5 +207,91 @@ export const clothesImagesRoutes: ClothesImagesInterface[] = [
     title: "ServiceNow Shirt",
     price: 20.99,
     category: "shirts",
+  },
+];
+
+export const accessoriesImagesRoutes = [
+  {
+    id: "1",
+    path: "/images/servicenowBackpack.jpg",
+    alt: "Backpack Image",
+    title: "ServiceNow Backpack",
+    price: 39.99,
+    category: "backpacks",
+  },
+  {
+    id: "2",
+    path: "/images/servicenowBackpack2.webp",
+    alt: "Backpack Image",
+    title: "ServiceNow Backpack",
+    price: 44.99,
+    category: "backpacks",
+  },
+  {
+    id: "3",
+    path: "/images/servicenowCap.jpg",
+    alt: "Cap Image",
+    title: "ServiceNow Cap",
+    price: 14.99,
+    category: "caps",
+  },
+  {
+    id: "4",
+    path: "/images/servicenowWatch.jpeg",
+    alt: "Watch Image",
+    title: "ServiceNow Watch",
+    price: 99.99,
+    category: "watches",
+  },
+  {
+    id: "5",
+    path: "/images/servicenowRing.jpeg",
+    alt: "Ring Image",
+    title: "ServiceNow Ring",
+    price: 29.99,
+    category: "rings",
+  },
+  {
+    id: "6",
+    path: "/images/servicenowBelt.webp",
+    alt: "Belt Image",
+    title: "ServiceNow Belt",
+    price: 24.99,
+    category: "belts",
+  },
+];
+
+export const technologyImagesRoutes = [
+  {
+    id: "1",
+    path: "/images/servicenowLaptop.jpg",
+    alt: "Laptop Image",
+    title: "ServiceNow Laptop",
+    price: 899.99,
+    category: "laptops",
+  },
+  {
+    id: "2",
+    path: "/images/servicenowMouse.jpg",
+    alt: "Mouse Image",
+    title: "ServiceNow Mouse",
+    price: 29.99,
+    category: "mice",
+  },
+  {
+    id: "3",
+    path: "/images/servicenowKeyboard.webp",
+    alt: "Keyboard Image",
+    title: "ServiceNow Keyboard",
+    price: 49.99,
+    category: "keyboards",
+  },
+  {
+    id: "4",
+    path: "/images/servicenowHeadphones.jpeg",
+    alt: "Headphones Image",
+    title: "ServiceNow Headphones",
+    price: 79.99,
+    category: "headphones",
   },
 ];

@@ -16,9 +16,9 @@ function App() {
       <LogoImageProvider>
         <ProductImageProvider>
           <BrowserRouter>
-            <div className="min-h-screen">
+            <div className="min-h-screen flex flex-col">
               <Header />
-              <main>
+              <main className="flex-1">
                 <Routes>
                   <Route path="/" element={<Home />} />
                   <Route path="/clothing" element={<Clothing />} />
@@ -29,6 +29,10 @@ function App() {
                   />
                   <Route path="/accessories" element={<Accessories />} />
                   <Route path="/technology" element={<Technology />} />
+                  <Route
+                    path="/technology/:category"
+                    element={<Technology />}
+                  />
                 </Routes>
               </main>
               <Footer />

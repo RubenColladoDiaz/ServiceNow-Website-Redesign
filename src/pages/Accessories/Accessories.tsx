@@ -1,6 +1,9 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import SectionsBar from "../../components/SectionsBar/SectionsBar";
+import ClothingCard from "../../components/ClothingCard/ClothingCard";
+import { useProductImageContext } from "../../context/ProductImageContext";
+import { useParams } from "react-router-dom";
 
 const sections = [
   { name: "Backpacks", path: "/accessories/backpacks" },
@@ -11,6 +14,15 @@ const sections = [
 ];
 
 const Accessories: React.FC = () => {
+  const { accessoriesImages } = useProductImageContext();
+  const { category = "all" } = useParams<{ category: string }>();
+
+  let filteredAccessories = accessoriesImages;
+  if (category !== "all") {
+    filteredAccessories = accessoriesImages.filter(
+      (item) => item.category === category,
+    );
+  }
   return (
     <div className="mb-10">
       <NavLink to="/accessories">
@@ -19,6 +31,16 @@ const Accessories: React.FC = () => {
         </p>
       </NavLink>
       <SectionsBar sections={sections} />
+      <div className="grid grid-cols-4 mt-10">
+        {filteredAccessories.map((item, index) => (
+          <ClothingCard
+            key={index}
+            image={item.path}
+            title={item.title}
+            price={item.price}
+          />
+        ))}
+      </div>
     </div>
   );
 };
