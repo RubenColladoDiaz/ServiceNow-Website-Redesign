@@ -1,17 +1,41 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 
 import { useProductImageContext } from "../../context/ProductImageContext";
 import { useIconImageContext } from "../../context/IconImageContext";
 
 const ProductsOfTheMonth: React.FC = () => {
   const { iconImages } = useIconImageContext();
-  const { productImages } = useProductImageContext();
+  const { productImages, clothesImages, accessoriesImages, technologyImages } =
+    useProductImageContext();
   const productsOfTheMonth: string[] = [
     productImages[2].path,
     productImages[10].path,
     productImages[6].path,
   ];
+  const navigate = useNavigate();
+
+  const handleImageClick = (src: string) => {
+    // Buscar en ropa
+    const clothing = clothesImages.find((item) => item.path === src);
+    if (clothing) {
+      navigate(`/clothing/${clothing.category}`);
+      return;
+    }
+    // Buscar en accesorios
+    const accessory = accessoriesImages.find((item) => item.path === src);
+    if (accessory) {
+      navigate(`/accessories/${accessory.category}`);
+      return;
+    }
+    // Buscar en tecnología
+    const tech = technologyImages.find((item) => item.path === src);
+    if (tech) {
+      navigate(`/technology/${tech.category}`);
+      return;
+    }
+  };
 
   return (
     <div className="text-center bg-green-600 px-4">
@@ -51,6 +75,7 @@ const ProductsOfTheMonth: React.FC = () => {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.2 * i, duration: 0.6 }}
               whileHover={{ scale: 1.08, rotate: 2 }}
+              onClick={() => handleImageClick(src)}
             />
           ))}
         </div>
