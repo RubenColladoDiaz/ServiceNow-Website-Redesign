@@ -4,9 +4,9 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "predev": "node convert-images-to-webp.js",
+    "predev": "node ./utils/convert-images-to-webp.js",
     "dev": "vite",
-    "prebuild": "node convert-images-to-webp.js",
+    "prebuild": "node ./utils/convert-images-to-webp.js",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview"
