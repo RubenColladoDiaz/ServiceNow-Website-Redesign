@@ -9,13 +9,11 @@ import { CartProvider } from "./context/CartContextDefinition";
 import { Header, Footer } from "./components";
 import { ROUTES } from "./constants";
 
-// Lazy load page components
 const Home = React.lazy(() => import("./pages/Home/Home"));
 const Clothing = React.lazy(() => import("./pages/Clothing/Clothing"));
 const Accessories = React.lazy(() => import("./pages/Accessories/Accessories"));
 const Technology = React.lazy(() => import("./pages/Technology/Technology"));
 
-// Loading component
 const LoadingFallback = () => (
   <div className="flex items-center justify-center min-h-screen">
     <div className="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-white"></div>
