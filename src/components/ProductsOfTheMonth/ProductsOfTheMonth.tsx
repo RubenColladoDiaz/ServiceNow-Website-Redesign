@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion";
 
 import { useProductImageContext } from "../../context/ProductImageContext";
 import { useIconImageContext } from "../../context/IconImageContext";
@@ -15,7 +16,13 @@ const ProductsOfTheMonth: React.FC = () => {
   return (
     <div className="text-center bg-green-600 px-4">
       <p className="text-7xl pt-10 font-sans font-bold tracking-tight text-white mb-8">
-        PRODUCTS OF THE MONTH
+        <motion.span
+          initial={{ opacity: 0, y: -30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
+        >
+          PRODUCTS OF THE MONTH
+        </motion.span>
       </p>
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-3 gap-8">
@@ -35,11 +42,15 @@ const ProductsOfTheMonth: React.FC = () => {
         </div>
         <div className="grid grid-cols-3 gap-8 pb-24">
           {productsOfTheMonth.map((src, i) => (
-            <img
+            <motion.img
               key={i}
               src={src}
               alt={`top ${i}`}
               className="w-full rounded-3xl aspect-square object-cover cursor-pointer"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.2 * i, duration: 0.6 }}
+              whileHover={{ scale: 1.08, rotate: 2 }}
             />
           ))}
         </div>

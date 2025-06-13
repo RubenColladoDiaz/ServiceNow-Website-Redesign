@@ -1,5 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import { motion } from "framer-motion";
 
 import { useProductImageContext } from "../../context/ProductImageContext";
 import { useIconImageContext } from "../../context/IconImageContext";
@@ -28,14 +29,24 @@ const Categories: React.FC = () => {
             to={data.link}
             className="relative aspect-[3/4] cursor-pointer overflow-hidden rounded-2xl block"
           >
-            <img
+            <motion.img
               src={data.path}
               alt={`category ${category}`}
-              className="w-full h-full object-cover hover:scale-110 transition-transform duration-300"
+              className="w-full h-full object-cover"
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.2 * i, duration: 0.6 }}
+              whileHover={{ scale: 1.12, rotate: 2 }}
             />
-            <p className="absolute bottom-0 left-0 w-full text-white text-3xl font-bold rounded-b-2xl py-3 bg-black bg-opacity-40 text-center">
+            <motion.p
+              className="absolute bottom-0 left-0 w-full text-white text-3xl font-bold rounded-b-2xl py-3 bg-black bg-opacity-40 text-center"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3 + 0.2 * i, duration: 0.5 }}
+              whileHover={{ scale: 1.05 }}
+            >
               {category}
-            </p>
+            </motion.p>
           </NavLink>
         ))}
       </div>

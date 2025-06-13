@@ -9,6 +9,7 @@ import {
 } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { useLogoImageContext } from "../../context/LogoImageContext";
+import { motion } from "framer-motion";
 
 const Footer: React.FC = () => {
   const { logoImages } = useLogoImageContext();
@@ -23,22 +24,52 @@ const Footer: React.FC = () => {
       </div>
       <div className="flex gap-6">
         <Link to="https://x.com/ServiceNow">
-          <FaTwitter className="text-white text-3xl hover:text-green-800 cursor-pointer" />
+          <motion.div
+            whileHover={{ scale: 1.2, rotate: 8 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <FaTwitter className="text-white text-3xl hover:text-green-800 cursor-pointer" />
+          </motion.div>
         </Link>
         <Link to="https://www.youtube.com/@servicenow">
-          <FaYoutube className="text-white text-3xl hover:text-green-800 cursor-pointer" />
+          <motion.div
+            whileHover={{ scale: 1.2, rotate: 8 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <FaYoutube className="text-white text-3xl hover:text-green-800 cursor-pointer" />
+          </motion.div>
         </Link>
         <Link to="https://www.linkedin.com/company/servicenow/posts/?feedView=all">
-          <FaLinkedin className="text-white text-3xl hover:text-green-800 cursor-pointer" />
+          <motion.div
+            whileHover={{ scale: 1.2, rotate: 8 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <FaLinkedin className="text-white text-3xl hover:text-green-800 cursor-pointer" />
+          </motion.div>
         </Link>
         <Link to="https://www.facebook.com/servicenow/?locale=es_ES">
-          <FaFacebook className="text-white text-3xl hover:text-green-800 cursor-pointer" />
+          <motion.div
+            whileHover={{ scale: 1.2, rotate: 8 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <FaFacebook className="text-white text-3xl hover:text-green-800 cursor-pointer" />
+          </motion.div>
         </Link>
         <Link to="https://www.instagram.com/servicenow/">
-          <FaInstagram className="text-white text-3xl hover:text-green-800 cursor-pointer" />
+          <motion.div
+            whileHover={{ scale: 1.2, rotate: 8 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <FaInstagram className="text-white text-3xl hover:text-green-800 cursor-pointer" />
+          </motion.div>
         </Link>
         <Link to="https://www.tiktok.com/@servicenow?lang=es">
-          <FaTiktok className="text-white text-3xl hover:text-green-800 cursor-pointer" />
+          <motion.div
+            whileHover={{ scale: 1.2, rotate: 8 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <FaTiktok className="text-white text-3xl hover:text-green-800 cursor-pointer" />
+          </motion.div>
         </Link>
       </div>
     </div>

@@ -1,6 +1,7 @@
 import { NavLink } from "react-router-dom";
 import React, { useEffect, useRef, useState } from "react";
 import "./Header.css";
+import { motion } from "framer-motion";
 
 import { useIconImageContext } from "../../context/IconImageContext";
 import { useLogoImageContext } from "../../context/LogoImageContext";
@@ -242,10 +243,14 @@ const Header: React.FC = () => {
           <ul className="list-none flex flex-row items-center gap-20">
             <li>
               <NavLink to="/">
-                <img
+                <motion.img
                   className="w-32 h-auto ml-40"
                   src={logoImages[0].path}
                   alt="ServiceNow Icon"
+                  initial={{ opacity: 0, y: -40 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, type: "spring" }}
+                  whileHover={{ scale: 1.08, rotate: 2 }}
                 />
               </NavLink>
             </li>
@@ -254,7 +259,14 @@ const Header: React.FC = () => {
                 to="/clothing"
                 className="font-normal hover:text-gray-300 text-white"
               >
-                Clothing
+                <motion.span
+                  initial={{ opacity: 0, y: -20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.2, duration: 0.6 }}
+                  whileHover={{ scale: 1.1, color: "#a7f3d0" }}
+                >
+                  Clothing
+                </motion.span>
               </NavLink>
             </li>
             <li>
@@ -262,7 +274,14 @@ const Header: React.FC = () => {
                 to="/accessories"
                 className="font-normal hover:text-gray-300 text-white"
               >
-                Accessories
+                <motion.span
+                  initial={{ opacity: 0, y: -20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.4, duration: 0.6 }}
+                  whileHover={{ scale: 1.1, color: "#a7f3d0" }}
+                >
+                  Accessories
+                </motion.span>
               </NavLink>
             </li>
             <li>
@@ -270,7 +289,14 @@ const Header: React.FC = () => {
                 to="/technology"
                 className="font-normal hover:text-gray-300 text-white"
               >
-                Technology
+                <motion.span
+                  initial={{ opacity: 0, y: -20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.6, duration: 0.6 }}
+                  whileHover={{ scale: 1.1, color: "#a7f3d0" }}
+                >
+                  Technology
+                </motion.span>
               </NavLink>
             </li>
             <li className="ml-auto flex items-center gap-6 mr-40">
