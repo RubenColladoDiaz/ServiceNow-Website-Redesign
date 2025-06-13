@@ -2,39 +2,39 @@ import { ProductImageRoute } from "../types/productImagesRoute";
 import { ClothesImagesInterface } from "../types/productImagesRoute";
 
 export const productImagesRoutes: ProductImageRoute[] = [
-  { id: "1", path: "/images/servicenowBackpack.jpg", alt: "Backpack Image" },
+  { id: "1", path: "/images/servicenowBackpack.webp", alt: "Backpack Image" },
   { id: "2", path: "/images/servicenowBackpack2.webp", alt: "Backpack Image" },
-  { id: "3", path: "/images/servicenowSweater.jpg", alt: "Sweater Image" },
+  { id: "3", path: "/images/servicenowSweater.webp", alt: "Sweater Image" },
   { id: "4", path: "/images/servicenowTshirt.webp", alt: "T-Shirt Image" },
-  { id: "5", path: "/images/servicenowTshirt2.jpg", alt: "T-Shirt Image" },
-  { id: "6", path: "/images/servicenowTshirt3.avif", alt: "T-Shirt Image" },
-  { id: "7", path: "/images/servicenowTshirt4.jpg", alt: "T-Shirt Image" },
+  { id: "5", path: "/images/servicenowTshirt2.webp", alt: "T-Shirt Image" },
+  { id: "6", path: "/images/servicenowTshirt3.webp", alt: "T-Shirt Image" },
+  { id: "7", path: "/images/servicenowTshirt4.webp", alt: "T-Shirt Image" },
   { id: "8", path: "/images/servicenowTshirt5.webp", alt: "T-Shirt Image" },
-  { id: "9", path: "/images/servicenowSweater2.jpg", alt: "Sweater Image" },
-  { id: "10", path: "/images/servicenowSweater3.jpg", alt: "Sweater Image" },
+  { id: "9", path: "/images/servicenowSweater2.webp", alt: "Sweater Image" },
+  { id: "10", path: "/images/servicenowSweater3.webp", alt: "Sweater Image" },
   { id: "11", path: "/images/servicenowSweater4.webp", alt: "Sweater Image" },
-  { id: "12", path: "/images/servicenowShoes.jpg", alt: "Shoes Image" },
-  { id: "13", path: "/images/servicenowShoes2.jpg", alt: "Shoes Image" },
-  { id: "14", path: "/images/servicenowShoes3.jpg", alt: "Shoes Image" },
-  { id: "15", path: "/images/servicenowShoes4.jpg", alt: "Shoes Image" },
+  { id: "12", path: "/images/servicenowShoes.webp", alt: "Shoes Image" },
+  { id: "13", path: "/images/servicenowShoes2.webp", alt: "Shoes Image" },
+  { id: "14", path: "/images/servicenowShoes3.webp", alt: "Shoes Image" },
+  { id: "15", path: "/images/servicenowShoes4.webp", alt: "Shoes Image" },
   { id: "16", path: "/images/servicenowPants.webp", alt: "Pants Image" },
   { id: "17", path: "/images/servicenowPants2.webp", alt: "Pants Image" },
   { id: "18", path: "/images/servicenowPants3.webp", alt: "Pants Image" },
   { id: "19", path: "/images/servicenowPants4.webp", alt: "Pants Image" },
-  { id: "20", path: "/images/servicenowShirt.jpg", alt: "Shirt Image" },
-  { id: "21", path: "/images/servicenowShirt2.jpg", alt: "Shirt Image" },
+  { id: "20", path: "/images/servicenowShirt.webp", alt: "Shirt Image" },
+  { id: "21", path: "/images/servicenowShirt2.webp", alt: "Shirt Image" },
   { id: "22", path: "/images/servicenowShirt3.webp", alt: "Shirt Image" },
-  { id: "23", path: "/images/servicenowShirt4.jpg", alt: "Shirt Image" },
-  { id: "24", path: "/images/servicenowCap.jpg", alt: "Cap Image" },
-  { id: "25", path: "/images/servicenowWatch.jpeg", alt: "Watch Image" },
-  { id: "26", path: "/images/servicenowRing.jpeg", alt: "Ring Image" },
+  { id: "23", path: "/images/servicenowShirt4.webp", alt: "Shirt Image" },
+  { id: "24", path: "/images/servicenowCap.webp", alt: "Cap Image" },
+  { id: "25", path: "/images/servicenowWatch.webp", alt: "Watch Image" },
+  { id: "26", path: "/images/servicenowRing.webp", alt: "Ring Image" },
   { id: "27", path: "/images/servicenowBelt.webp", alt: "Belt Image" },
-  { id: "28", path: "/images/servicenowLaptop.jpg", alt: "Laptop Image" },
-  { id: "29", path: "/images/servicenowMouse.jpg", alt: "Mouse Image" },
+  { id: "28", path: "/images/servicenowLaptop.webp", alt: "Laptop Image" },
+  { id: "29", path: "/images/servicenowMouse.webp", alt: "Mouse Image" },
   { id: "30", path: "/images/servicenowKeyboard.webp", alt: "Keyboard Image" },
   {
     id: "31",
-    path: "/images/servicenowHeadphones.jpeg",
+    path: "/images/servicenowHeadphones.webp",
     alt: "Headphones Image",
   },
 ];
@@ -42,7 +42,7 @@ export const productImagesRoutes: ProductImageRoute[] = [
 export const clothesImagesRoutes: ClothesImagesInterface[] = [
   {
     id: "1",
-    path: "/images/servicenowSweater.jpg",
+    path: "/images/servicenowSweater.webp",
     alt: "Sweater Image",
     title: "Badass Sweater",
     price: 49.99,
@@ -58,7 +58,7 @@ export const clothesImagesRoutes: ClothesImagesInterface[] = [
   },
   {
     id: "3",
-    path: "/images/servicenowTshirt2.jpg",
+    path: "/images/servicenowTshirt2.webp",
     alt: "T-Shirt Image",
     title: "ServiceNow T-Shirt",
     price: 24.99,
@@ -66,7 +66,7 @@ export const clothesImagesRoutes: ClothesImagesInterface[] = [
   },
   {
     id: "4",
-    path: "/images/servicenowTshirt3.avif",
+    path: "/images/servicenowTshirt3.webp",
     alt: "T-Shirt Image",
     title: "ServiceNow T-Shirt",
     price: 22.99,
@@ -74,7 +74,7 @@ export const clothesImagesRoutes: ClothesImagesInterface[] = [
   },
   {
     id: "5",
-    path: "/images/servicenowTshirt4.jpg",
+    path: "/images/servicenowTshirt4.webp",
     alt: "T-Shirt Image",
     title: "ServiceNow T-Shirt",
     price: 21.99,
@@ -90,7 +90,7 @@ export const clothesImagesRoutes: ClothesImagesInterface[] = [
   },
   {
     id: "7",
-    path: "/images/servicenowSweater2.jpg",
+    path: "/images/servicenowSweater2.webp",
     alt: "Sweater Image",
     title: "ServiceNow Sweater",
     price: 38.99,
@@ -98,7 +98,7 @@ export const clothesImagesRoutes: ClothesImagesInterface[] = [
   },
   {
     id: "8",
-    path: "/images/servicenowSweater3.jpg",
+    path: "/images/servicenowSweater3.webp",
     alt: "Sweater Image",
     title: "ServiceNow Sweater",
     price: 28.55,
@@ -114,7 +114,7 @@ export const clothesImagesRoutes: ClothesImagesInterface[] = [
   },
   {
     id: "10",
-    path: "/images/servicenowShoes.jpg",
+    path: "/images/servicenowShoes.webp",
     alt: "Shoes Image",
     title: "ServiceNow Shoes",
     price: 19.99,
@@ -122,7 +122,7 @@ export const clothesImagesRoutes: ClothesImagesInterface[] = [
   },
   {
     id: "11",
-    path: "/images/servicenowShoes2.jpg",
+    path: "/images/servicenowShoes2.webp",
     alt: "Shoes Image",
     title: "ServiceNow Shoes",
     price: 49.99,
@@ -130,7 +130,7 @@ export const clothesImagesRoutes: ClothesImagesInterface[] = [
   },
   {
     id: "12",
-    path: "/images/servicenowShoes3.jpg",
+    path: "/images/servicenowShoes3.webp",
     alt: "Shoes Image",
     title: "ServiceNow Shoes",
     price: 29.99,
@@ -138,7 +138,7 @@ export const clothesImagesRoutes: ClothesImagesInterface[] = [
   },
   {
     id: "13",
-    path: "/images/servicenowShoes4.jpg",
+    path: "/images/servicenowShoes4.webp",
     alt: "Shoes Image",
     title: "ServiceNow Shoes",
     price: 59.99,
@@ -178,7 +178,7 @@ export const clothesImagesRoutes: ClothesImagesInterface[] = [
   },
   {
     id: "20",
-    path: "/images/servicenowShirt.jpg",
+    path: "/images/servicenowShirt.webp",
     alt: "Shirt Image",
     title: "ServiceNow Shirt",
     price: 120.99,
@@ -186,7 +186,7 @@ export const clothesImagesRoutes: ClothesImagesInterface[] = [
   },
   {
     id: "21",
-    path: "/images/servicenowShirt2.jpg",
+    path: "/images/servicenowShirt2.webp",
     alt: "Shirt Image",
     title: "ServiceNow Shirt",
     price: 130.99,
@@ -202,7 +202,7 @@ export const clothesImagesRoutes: ClothesImagesInterface[] = [
   },
   {
     id: "23",
-    path: "/images/servicenowShirt4.jpg",
+    path: "/images/servicenowShirt4.webp",
     alt: "Shirt Image",
     title: "ServiceNow Shirt",
     price: 20.99,
@@ -213,7 +213,7 @@ export const clothesImagesRoutes: ClothesImagesInterface[] = [
 export const accessoriesImagesRoutes = [
   {
     id: "1",
-    path: "/images/servicenowBackpack.jpg",
+    path: "/images/servicenowBackpack.webp",
     alt: "Backpack Image",
     title: "ServiceNow Backpack",
     price: 39.99,
@@ -229,7 +229,7 @@ export const accessoriesImagesRoutes = [
   },
   {
     id: "3",
-    path: "/images/servicenowCap.jpg",
+    path: "/images/servicenowCap.webp",
     alt: "Cap Image",
     title: "ServiceNow Cap",
     price: 14.99,
@@ -237,7 +237,7 @@ export const accessoriesImagesRoutes = [
   },
   {
     id: "4",
-    path: "/images/servicenowWatch.jpeg",
+    path: "/images/servicenowWatch.webp",
     alt: "Watch Image",
     title: "ServiceNow Watch",
     price: 99.99,
@@ -245,7 +245,7 @@ export const accessoriesImagesRoutes = [
   },
   {
     id: "5",
-    path: "/images/servicenowRing.jpeg",
+    path: "/images/servicenowRing.webp",
     alt: "Ring Image",
     title: "ServiceNow Ring",
     price: 29.99,
@@ -264,7 +264,7 @@ export const accessoriesImagesRoutes = [
 export const technologyImagesRoutes = [
   {
     id: "1",
-    path: "/images/servicenowLaptop.jpg",
+    path: "/images/servicenowLaptop.webp",
     alt: "Laptop Image",
     title: "ServiceNow Laptop",
     price: 899.99,
@@ -272,7 +272,7 @@ export const technologyImagesRoutes = [
   },
   {
     id: "2",
-    path: "/images/servicenowMouse.jpg",
+    path: "/images/servicenowMouse.webp",
     alt: "Mouse Image",
     title: "ServiceNow Mouse",
     price: 29.99,
@@ -288,7 +288,7 @@ export const technologyImagesRoutes = [
   },
   {
     id: "4",
-    path: "/images/servicenowHeadphones.jpeg",
+    path: "/images/servicenowHeadphones.webp",
     alt: "Headphones Image",
     title: "ServiceNow Headphones",
     price: 79.99,

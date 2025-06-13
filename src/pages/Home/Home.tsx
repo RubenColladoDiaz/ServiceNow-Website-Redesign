@@ -13,7 +13,9 @@ const Home: React.FC = () => {
   const [lastImageIndex, setLastImageIndex] = useState<number>(-1);
 
   useEffect(() => {
-    let randomNumber: number = Math.floor(Math.random() * productImages.length);
+    const randomNumber: number = Math.floor(
+      Math.random() * productImages.length,
+    );
     setRandomImage(productImages[randomNumber].path);
     setLastImageIndex(randomNumber);
 
@@ -22,7 +24,7 @@ const Home: React.FC = () => {
       do {
         newRandomNumber = Math.floor(Math.random() * productImages.length);
       } while (newRandomNumber === lastImageIndex);
-      
+
       setLastImageIndex(newRandomNumber);
       return productImages[newRandomNumber].path;
     };
