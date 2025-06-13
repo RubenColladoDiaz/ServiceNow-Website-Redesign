@@ -4,34 +4,119 @@ import "./Header.css";
 
 import { useIconImageContext } from "../../context/IconImageContext";
 import { useLogoImageContext } from "../../context/LogoImageContext";
+import { useProductImageContext } from "../../context/ProductImageContext";
+import {
+  ClothesImagesInterface,
+  AccessoriesImagesInterface,
+  TechnologyImagesInterface,
+} from "../../types/productImagesRoute";
 
 function SearchToggle() {
   const { iconImages } = useIconImageContext();
-  // For the appearance of the input when the lens is clicked, we make a boolean initialized in false
+  const { clothesImages, accessoriesImages, technologyImages } =
+    useProductImageContext();
   const [isSearching, setIsSearching] = useState(false);
-  // We make a reference for the input element in DOM
+  const [searchText, setSearchText] = useState("");
+  const [showResults, setShowResults] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
 
+  // Unimos todos los productos en un solo array
+  const allProducts = [
+    ...clothesImages,
+    ...accessoriesImages,
+    ...technologyImages,
+  ];
+
+  // Filtramos los productos por el texto de búsqueda
+  const filteredProducts = allProducts.filter((product) =>
+    product.title.toLowerCase().includes(searchText.toLowerCase()),
+  );
+
   useEffect(() => {
-    // if the input is visible and the input exists...
     if (isSearching && inputRef.current) {
-      // We put the user inside the input
       inputRef.current.focus();
     }
-    // We execute the effect when the value of isSearching changes
   }, [isSearching]);
+
+  // Función para navegar a la categoría del producto
+  type ProductType =
+    | ClothesImagesInterface
+    | AccessoriesImagesInterface
+    | TechnologyImagesInterface;
+  const handleResultClick = (product: ProductType) => {
+    let basePath = "/";
+    if (product.category) {
+      if (
+        ["tshirts", "shirts", "jackets", "pants", "shoes"].includes(
+          product.category,
+        )
+      ) {
+        basePath = `/clothing/${product.category}`;
+      } else if (
+        ["backpacks", "caps", "watches", "rings", "belts"].includes(
+          product.category,
+        )
+      ) {
+        basePath = `/accessories/${product.category}`;
+      } else if (
+        ["laptops", "mice", "keyboards", "headphones"].includes(
+          product.category,
+        )
+      ) {
+        basePath = `/technology/${product.category}`;
+      }
+    }
+    window.location.href = basePath;
+    setIsSearching(false);
+    setShowResults(false);
+    setSearchText("");
+  };
 
   return (
     <div className="relative flex items-center h-10">
       {isSearching ? (
-        <input
-          ref={inputRef}
-          type="text"
-          placeholder="Search"
-          className="border border-white bg-transparent text-white placeholder-white rounded-full px-4 py-1 w-60 focus:outline-none focus:ring-2 focus:ring-white transition-all"
-          // When the user exits the input, isSearching = false
-          onBlur={() => setIsSearching(false)}
-        />
+        <div className="relative w-60">
+          <input
+            ref={inputRef}
+            type="text"
+            placeholder="Buscar productos..."
+            className="border border-white bg-transparent text-white placeholder-white rounded-full px-4 py-1 w-60 focus:outline-none focus:ring-2 focus:ring-white transition-all"
+            value={searchText}
+            onChange={(e) => {
+              setSearchText(e.target.value);
+              setShowResults(true);
+            }}
+            onBlur={() =>
+              setTimeout(() => {
+                setIsSearching(false);
+                setShowResults(false);
+              }, 200)
+            }
+            onFocus={() => setShowResults(true)}
+          />
+          {showResults && searchText && (
+            <ul className="absolute z-50 left-0 w-full bg-white text-black rounded-b-lg shadow-lg max-h-60 overflow-y-auto">
+              {filteredProducts.length > 0 ? (
+                filteredProducts.slice(0, 8).map((product: ProductType) => (
+                  <li
+                    key={product.id + product.title}
+                    className="flex items-center gap-2 px-3 py-2 hover:bg-gray-200 cursor-pointer"
+                    onMouseDown={() => handleResultClick(product)}
+                  >
+                    <img
+                      src={product.path}
+                      alt={product.title}
+                      className="w-8 h-8 rounded object-cover"
+                    />
+                    <span className="text-sm">{product.title}</span>
+                  </li>
+                ))
+              ) : (
+                <li className="px-3 py-2 text-gray-500">No hay resultados</li>
+              )}
+            </ul>
+          )}
+        </div>
       ) : (
         <div
           className="p-2 rounded-full hover:bg-white/20 cursor-pointer"

@@ -1,4 +1,3 @@
-import React from "react";
 import { useState, useEffect } from "react";
 import ProductsOfTheMonth from "../../components/ProductsOfTheMonth/ProductsOfTheMonth";
 import Categories from "../../components/Categories/Categories";
