@@ -8,8 +8,8 @@ const ProductsOfTheMonth: React.FC = () => {
   const { productImages } = useProductImageContext();
   const productsOfTheMonth: string[] = [
     productImages[2].path,
-    productImages[1].path,
-    productImages[4].path,
+    productImages[10].path,
+    productImages[6].path,
   ];
 
   return (
