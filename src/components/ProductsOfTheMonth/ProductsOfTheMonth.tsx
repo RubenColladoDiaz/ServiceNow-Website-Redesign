@@ -33,7 +33,6 @@ const ProductsOfTheMonth: React.FC = () => {
     const tech = technologyImages.find((item) => item.path === src);
     if (tech) {
       navigate(`/technology/${tech.category}`);
-      return;
     }
   };
 
@@ -67,7 +66,7 @@ const ProductsOfTheMonth: React.FC = () => {
         <div className="grid grid-cols-3 gap-8 pb-24">
           {productsOfTheMonth.map((src, i) => (
             <motion.img
-              key={i}
+              key={src}
               src={src}
               alt={`top ${i}`}
               className="w-full rounded-3xl aspect-square object-cover cursor-pointer"

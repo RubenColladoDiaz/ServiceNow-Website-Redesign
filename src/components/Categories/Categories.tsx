@@ -25,7 +25,7 @@ const Categories: React.FC = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pb-16">
         {Object.entries(categoriesImages).map(([category, data], i) => (
           <NavLink
-            key={i}
+            key={category}
             to={data.link}
             className="relative aspect-[3/4] cursor-pointer overflow-hidden rounded-2xl block"
           >

@@ -101,15 +101,19 @@ function SearchToggle() {
                 filteredProducts.slice(0, 8).map((product: ProductType) => (
                   <li
                     key={product.id + product.title}
-                    className="flex items-center gap-2 px-3 py-2 hover:bg-gray-200 cursor-pointer"
-                    onMouseDown={() => handleResultClick(product)}
+                    className="flex items-center gap-2 px-3 py-2 hover:bg-gray-200"
                   >
-                    <img
-                      src={product.path}
-                      alt={product.title}
-                      className="w-8 h-8 rounded object-cover"
-                    />
-                    <span className="text-sm">{product.title}</span>
+                    <button
+                      className="flex items-center gap-2 w-full text-left"
+                      onClick={() => handleResultClick(product)}
+                    >
+                      <img
+                        src={product.path}
+                        alt={product.title}
+                        className="w-8 h-8 rounded object-cover"
+                      />
+                      <span className="text-sm">{product.title}</span>
+                    </button>
                   </li>
                 ))
               ) : (
@@ -119,16 +123,17 @@ function SearchToggle() {
           )}
         </div>
       ) : (
-        <div
-          className="p-2 rounded-full hover:bg-white/20 cursor-pointer"
+        <button
+          className="p-2 rounded-full hover:bg-white/20"
           onClick={() => setIsSearching(true)}
+          aria-label="Buscar productos"
         >
           <img
             className="w-6 h-6 brightness-0 invert"
             src={iconImages[2].path}
             alt={iconImages[2].alt}
           />
-        </div>
+        </button>
       )}
     </div>
   );
@@ -140,9 +145,9 @@ function Modal({
   onClose,
   children,
 }: {
-  isOpen: boolean;
-  onClose: () => void;
-  children: React.ReactNode;
+  readonly isOpen: boolean;
+  readonly onClose: () => void;
+  readonly children: React.ReactNode;
 }) {
   if (!isOpen) return null;
   return (
