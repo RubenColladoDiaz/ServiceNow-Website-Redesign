@@ -1,5 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import { UI_TEXT } from "../../constants";
 
 interface Section {
   name: string;
@@ -23,7 +24,7 @@ const SectionsBar: React.FC<SectionsBarProps> = ({ sections }) => {
             ))}
           </ul>
         </nav>
-        <p className="text-center pb-3">All clothes are Unisex</p>
+        <p className="text-center pb-3">{UI_TEXT.ALL_CLOTHES_UNISEX}</p>
       </div>
     </header>
   );

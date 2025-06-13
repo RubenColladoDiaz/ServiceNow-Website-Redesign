@@ -2,14 +2,12 @@ import React from "react";
 import { useParams, NavLink } from "react-router-dom";
 import { SectionsBar, ClothingCard } from "../../components";
 import { useProductImageContext } from "../../hooks";
+import { CLOTHING_CATEGORIES, UI_TEXT, ROUTES } from "../../constants";
 
-const sections = [
-  { name: "T-Shirts", path: "/clothing/tshirts" },
-  { name: "Shirts", path: "/clothing/shirts" },
-  { name: "Jackets", path: "/clothing/jackets" },
-  { name: "Pants", path: "/clothing/pants" },
-  { name: "Shoes", path: "/clothing/shoes" },
-];
+const sections = CLOTHING_CATEGORIES.map((cat) => ({
+  name: cat,
+  path: `${ROUTES.CLOTHING}/${cat.toLowerCase().replace(/\s/g, "")}`,
+}));
 
 const Clothing: React.FC = () => {
   const { clothesImages } = useProductImageContext();
@@ -23,9 +21,9 @@ const Clothing: React.FC = () => {
   }
   return (
     <div className="mb-10">
-      <NavLink to="/clothing">
+      <NavLink to={ROUTES.CLOTHING}>
         <p className="text-center my-10 text-7xl font-sans font-bold tracking-tight text-white">
-          CLOTHING
+          {UI_TEXT.CLOTHING_TITLE}
         </p>
       </NavLink>
       <SectionsBar sections={sections} />

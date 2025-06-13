@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
+import { UI_TEXT } from "../../constants";
 
 interface ClothingCardProps {
   image: string;
@@ -29,7 +30,7 @@ const ClothingCard: React.FC<ClothingCardProps> = ({
     >
       {isNew && (
         <span className="absolute top-3 left-3 bg-green-500 text-white text-xs font-bold px-2 py-1 rounded-full">
-          NUEVO
+          {UI_TEXT.NEW_LABEL}
         </span>
       )}
       {typeof discount === "number" && discount > 0 && (
@@ -68,7 +69,7 @@ const ClothingCard: React.FC<ClothingCardProps> = ({
         </div>
       )}
       <button className="mt-4 bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-6 rounded-full transition">
-        Buy Now
+        {UI_TEXT.BUY_NOW}
       </button>
     </motion.div>
   );

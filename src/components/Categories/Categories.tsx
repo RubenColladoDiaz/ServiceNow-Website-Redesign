@@ -2,22 +2,23 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useProductImageContext, useIconImageContext } from "../../hooks";
+import { ROUTES, UI_TEXT } from "../../constants";
 
 const Categories: React.FC = () => {
   const { productImages } = useProductImageContext();
   const { iconImages } = useIconImageContext();
 
   const categoriesImages: { [key: string]: { path: string; link: string } } = {
-    Clothing: { path: productImages[4].path, link: "/clothing" },
-    Accessories: { path: productImages[1].path, link: "/accessories" },
-    Technology: { path: iconImages[1].path, link: "/technology" },
+    Clothing: { path: productImages[4].path, link: ROUTES.CLOTHING },
+    Accessories: { path: productImages[1].path, link: ROUTES.ACCESSORIES },
+    Technology: { path: iconImages[1].path, link: ROUTES.TECHNOLOGY },
   };
 
   return (
     <div className="container mx-auto px-4">
       <div>
         <p className="text-5xl text-center py-8 font-sans font-bold tracking-tight text-white">
-          CATEGORIES
+          {UI_TEXT.CATEGORIES_TITLE}
         </p>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pb-16">

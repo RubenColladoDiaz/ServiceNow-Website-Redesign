@@ -3,13 +3,12 @@ import { ClothingCard } from "../../components";
 import { useProductImageContext } from "../../hooks";
 import { useParams, NavLink } from "react-router-dom";
 import { SectionsBar } from "../../components";
+import { TECHNOLOGY_CATEGORIES, UI_TEXT, ROUTES } from "../../constants";
 
-const sections = [
-  { name: "Laptops", path: "/technology/laptops" },
-  { name: "Mice", path: "/technology/mice" },
-  { name: "Keyboards", path: "/technology/keyboards" },
-  { name: "Headphones", path: "/technology/headphones" },
-];
+const sections = TECHNOLOGY_CATEGORIES.map((cat) => ({
+  name: cat,
+  path: `${ROUTES.TECHNOLOGY}/${cat.toLowerCase()}`,
+}));
 
 const Technology: React.FC = () => {
   const { technologyImages } = useProductImageContext();
@@ -23,9 +22,9 @@ const Technology: React.FC = () => {
   }
   return (
     <div className="mb-10">
-      <NavLink to="/technology">
+      <NavLink to={ROUTES.TECHNOLOGY}>
         <p className="text-center my-10 text-7xl font-sans font-bold tracking-tight text-white">
-          TECHNOLOGY
+          {UI_TEXT.TECHNOLOGY_TITLE}
         </p>
       </NavLink>
       <SectionsBar sections={sections} />

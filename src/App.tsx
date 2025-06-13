@@ -10,6 +10,7 @@ import Clothing from "./pages/Clothing/Clothing";
 import Accessories from "./pages/Accessories/Accessories";
 import Technology from "./pages/Technology/Technology";
 import Home from "./pages/Home/Home";
+import { ROUTES } from "./constants";
 
 function App() {
   return (
@@ -21,17 +22,20 @@ function App() {
               <Header />
               <main className="flex-1">
                 <Routes>
-                  <Route path="/" element={<Home />} />
-                  <Route path="/clothing" element={<Clothing />} />
-                  <Route path="/clothing/:category" element={<Clothing />} />
+                  <Route path={ROUTES.HOME} element={<Home />} />
+                  <Route path={ROUTES.CLOTHING} element={<Clothing />} />
                   <Route
-                    path="/accessories/:category"
+                    path={ROUTES.CLOTHING_CATEGORY}
+                    element={<Clothing />}
+                  />
+                  <Route
+                    path={ROUTES.ACCESSORIES_CATEGORY}
                     element={<Accessories />}
                   />
-                  <Route path="/accessories" element={<Accessories />} />
-                  <Route path="/technology" element={<Technology />} />
+                  <Route path={ROUTES.ACCESSORIES} element={<Accessories />} />
+                  <Route path={ROUTES.TECHNOLOGY} element={<Technology />} />
                   <Route
-                    path="/technology/:category"
+                    path={ROUTES.TECHNOLOGY_CATEGORY}
                     element={<Technology />}
                   />
                 </Routes>
