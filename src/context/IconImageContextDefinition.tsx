@@ -1,9 +1,5 @@
 import { createContext } from "react";
-import { IconImageRoute } from "../types/iconImageRoute";
-
-interface IconImageContextType {
-  iconImages: IconImageRoute[];
-}
+import { IconImageContextType } from "../types/iconImageRoute";
 
 export const IconImageContext = createContext<IconImageContextType | undefined>(
   undefined,

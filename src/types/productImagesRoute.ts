@@ -1,41 +1,44 @@
-export interface ProductImageRoute {
-  id: string;
-  path: string;
+// Tipos base
+export type ProductId = string;
+export type ProductPath = string;
+export type ProductTitle = string;
+export type ProductCategory = string;
+export type ProductSize = "S" | "M" | "L" | "XL";
+export type ProductPrice = number;
+export type ProductDiscount = number;
+
+// Interfaces base
+export interface BaseProduct {
+  id: ProductId;
+  path: ProductPath;
   alt?: string;
+  title: ProductTitle;
+  price: ProductPrice;
+  category: ProductCategory;
   isNew?: boolean;
-  discount?: number;
+  discount?: ProductDiscount;
 }
 
-export interface ClothesImagesInterface {
-  id: string;
-  path: string;
-  alt?: string;
-  title: string;
-  price: number;
-  category: string;
-  isNew?: boolean;
-  discount?: number;
-  sizes?: string[];
+export type ProductImageRoute = Pick<BaseProduct, "id" | "path" | "alt">;
+
+export interface ClothesImagesInterface extends BaseProduct {
+  sizes: ProductSize[];
 }
 
-export interface AccessoriesImagesInterface {
-  id: string;
-  path: string;
-  alt?: string;
-  title: string;
-  price: number;
-  category: string;
-  isNew?: boolean;
-  discount?: number;
-}
+// Tipos derivados
+export type AccessoriesImagesInterface = BaseProduct;
+export type TechnologyImagesInterface = BaseProduct;
 
-export interface TechnologyImagesInterface {
-  id: string;
-  path: string;
-  alt?: string;
-  title: string;
-  price: number;
-  category: string;
-  isNew?: boolean;
-  discount?: number;
+// Tipo unión para todos los productos
+export type ProductType =
+  | ClothesImagesInterface
+  | AccessoriesImagesInterface
+  | TechnologyImagesInterface;
+
+// Tipo para el contexto de productos
+export interface ProductImageContextType {
+  productImages: ProductImageRoute[];
+  clothesImages: ClothesImagesInterface[];
+  accessoriesImages: AccessoriesImagesInterface[];
+  technologyImages: TechnologyImagesInterface[];
 }

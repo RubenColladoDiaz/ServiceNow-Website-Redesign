@@ -1,9 +1,5 @@
 import { createContext } from "react";
-import { LogoImagesInterface } from "../types/LogoImagesInterface";
-
-interface LogoImageContextType {
-  logoImages: LogoImagesInterface[];
-}
+import { LogoImageContextType } from "../types/LogoImagesInterface";
 
 export const LogoImageContext = createContext<LogoImageContextType | undefined>(
   undefined,

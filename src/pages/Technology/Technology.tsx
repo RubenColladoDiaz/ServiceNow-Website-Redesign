@@ -1,8 +1,7 @@
 import React from "react";
-import { ClothingCard } from "../../components";
+import { ClothingCard, SectionsBar } from "../../components";
 import { useProductImageContext } from "../../hooks";
 import { useParams, NavLink } from "react-router-dom";
-import { SectionsBar } from "../../components";
 import { TECHNOLOGY_CATEGORIES, UI_TEXT, ROUTES } from "../../constants";
 
 const sections = TECHNOLOGY_CATEGORIES.map((cat) => ({
