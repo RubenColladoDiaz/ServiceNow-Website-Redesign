@@ -20,16 +20,16 @@ async function convertirImagenesAWebp(files) {
             const webpFile = file.replace(ext, '.webp');
             const webpPath = path.join(imagesDir, webpFile);
             if (fs.existsSync(webpPath)) {
-                console.log(`Ya existe: ${webpFile}`);
+                console.log(`Already exists: ${webpFile}`);
                 continue;
             }
             try {
                 await sharp(filePath)
                     .webp({ quality: 85 })
                     .toFile(webpPath);
-                console.log(`Convertido: ${file} → ${webpFile}`);
+                console.log(`Converted: ${file} → ${webpFile}`);
             } catch (e) {
-                console.error(`Error convirtiendo ${file}:`, e);
+                console.error(`Error converting ${file}:`, e);
             }
         }
     }
@@ -40,14 +40,14 @@ async function intentarEliminarArchivo(filePath, fileName, maxIntentos = 3) {
         try {
             await new Promise(resolve => setTimeout(resolve, 1000));
             fs.unlinkSync(filePath);
-            console.log(`Eliminado: ${fileName}`);
+            console.log(`Deleted: ${fileName}`);
             return true;
         } catch (e) {
             if (intento === maxIntentos) {
-                console.error(`Error eliminando ${fileName} después de ${maxIntentos} intentos:`, e);
+                console.error(`Error deleting ${fileName} after ${maxIntentos} attempts:`, e);
                 return false;
             }
-            console.log(`Intento ${intento} fallido para eliminar ${fileName}, reintentando...`);
+            console.log(`Attempt ${intento} failed to delete ${fileName}, retrying...`);
         }
     }
     return false;
@@ -69,20 +69,20 @@ function actualizarRutasImagenes() {
         let content = fs.readFileSync(dataFile, 'utf-8');
         content = content.replace(/(\/images\/[^"']+)\.(jpg|jpeg|png|avif)/gi, '$1.webp');
         fs.writeFileSync(dataFile, content, 'utf-8');
-        console.log('Rutas de imágenes actualizadas a .webp en src/data/productImagesRoutes.ts');
+        console.log('Image routes updated to .webp in src/data/productImagesRoutes.ts');
     } catch (e) {
-        console.error('Error actualizando rutas en src/data/productImagesRoutes.ts:', e);
+        console.error('Error updating routes in src/data/productImagesRoutes.ts:', e);
     }
 }
 
 fs.readdir(imagesDir, async (err, files) => {
     if (err) {
-        console.error('Error leyendo la carpeta de imágenes:', err);
+        console.error('Error reading images folder:', err);
         return;
     }
 
     if (todasImagenesSonWebp(files)) {
-        console.log('Todas las imágenes ya están en formato WebP. No es necesario realizar conversiones.');
+        console.log('All images are already in WebP format. No conversion needed.');
         return;
     }
 
