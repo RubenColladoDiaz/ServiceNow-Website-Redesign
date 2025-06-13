@@ -1,8 +1,6 @@
 import { useEffect } from "react";
-import ProductsOfTheMonth from "../../components/ProductsOfTheMonth/ProductsOfTheMonth";
-import Categories from "../../components/Categories/Categories";
-import { useProductImageContext } from "../../hooks/useProductImageContext";
-import { useLogoImageContext } from "../../hooks/useLogoImageContext";
+import { ProductsOfTheMonth, Categories } from "../../components";
+import { useProductImageContext, useLogoImageContext } from "../../hooks";
 
 const Home: React.FC = () => {
   const { logoImages } = useLogoImageContext();

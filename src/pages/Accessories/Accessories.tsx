@@ -1,8 +1,7 @@
 import React from "react";
 import { NavLink, useParams } from "react-router-dom";
-import SectionsBar from "../../components/SectionsBar/SectionsBar";
-import ClothingCard from "../../components/ClothingCard/ClothingCard";
-import { useProductImageContext } from "../../hooks/useProductImageContext";
+import { SectionsBar, ClothingCard } from "../../components";
+import { useProductImageContext } from "../../hooks";
 
 const sections = [
   { name: "Backpacks", path: "/accessories/backpacks" },

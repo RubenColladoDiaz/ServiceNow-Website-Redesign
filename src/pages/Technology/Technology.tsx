@@ -1,8 +1,8 @@
 import React from "react";
-import ClothingCard from "../../components/ClothingCard/ClothingCard";
-import { useProductImageContext } from "../../hooks/useProductImageContext";
+import { ClothingCard } from "../../components";
+import { useProductImageContext } from "../../hooks";
 import { useParams, NavLink } from "react-router-dom";
-import SectionsBar from "../../components/SectionsBar/SectionsBar";
+import { SectionsBar } from "../../components";
 
 const sections = [
   { name: "Laptops", path: "/technology/laptops" },

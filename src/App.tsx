@@ -1,14 +1,15 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
-import Home from "./pages/Home/Home";
-import Header from "./components/Header/Header";
-import Footer from "./components/Footer/Footer";
-import { ProductImageProvider } from "./context/ProductImageContext";
-import { LogoImageProvider } from "./context/LogoImageContext";
-import { IconImageProvider } from "./context/IconImageContext";
+import { Header, Footer } from "./components";
+import {
+  ProductImageProvider,
+  LogoImageProvider,
+  IconImageProvider,
+} from "./context";
 import Clothing from "./pages/Clothing/Clothing";
 import Accessories from "./pages/Accessories/Accessories";
 import Technology from "./pages/Technology/Technology";
+import Home from "./pages/Home/Home";
 
 function App() {
   return (

@@ -1,10 +1,10 @@
-import { NavLink } from "react-router-dom";
 import React, { useEffect, useRef, useState } from "react";
+import { NavLink } from "react-router-dom";
 import "./Header.css";
 import { motion } from "framer-motion";
 
 import { useIconImageContext } from "../../hooks/useIconImageContext";
-import { useLogoImageContext } from "../../hooks/useLogoImageContext";
+import { useLogoImageContext } from "../../hooks";
 import { useProductImageContext } from "../../hooks/useProductImageContext";
 import {
   ClothesImagesInterface,

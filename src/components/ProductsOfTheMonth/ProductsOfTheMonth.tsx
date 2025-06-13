@@ -1,9 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
-
-import { useProductImageContext } from "../../hooks/useProductImageContext";
-import { useIconImageContext } from "../../hooks/useIconImageContext";
+import { useProductImageContext, useIconImageContext } from "../../hooks";
 
 const ProductsOfTheMonth: React.FC = () => {
   const { iconImages } = useIconImageContext();
