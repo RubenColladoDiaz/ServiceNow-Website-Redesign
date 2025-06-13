@@ -1,4 +1,4 @@
-import React, { memo } from "react";
+import React, { memo, useMemo } from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { useProductImageContext, useIconImageContext } from "../../hooks";
@@ -7,12 +7,21 @@ const ProductsOfTheMonth: React.FC = () => {
   const { iconImages } = useIconImageContext();
   const { productImages, clothesImages, accessoriesImages, technologyImages } =
     useProductImageContext();
-  const productsOfTheMonth: string[] = [
-    productImages[2].path,
-    productImages[10].path,
-    productImages[6].path,
-  ];
   const navigate = useNavigate();
+
+  const productsOfTheMonth = useMemo(() => {
+    const allProducts = [...productImages];
+    const randomProducts: string[] = [];
+
+    // Seleccionar 3 productos aleatorios
+    for (let i = 0; i < 3; i++) {
+      const randomIndex = Math.floor(Math.random() * allProducts.length);
+      randomProducts.push(allProducts[randomIndex].path);
+      allProducts.splice(randomIndex, 1); // Evitar duplicados
+    }
+
+    return randomProducts;
+  }, [productImages]);
 
   const handleImageClick = (src: string) => {
     // Buscar en ropa

@@ -17,7 +17,7 @@ const Categories: React.FC = () => {
   return (
     <div className="container mx-auto px-4">
       <div>
-        <p className="text-5xl text-center py-8 font-sans font-bold tracking-tight text-white">
+        <p className="text-7xl text-center py-8 font-sans font-bold tracking-tight text-white">
           {UI_TEXT.CATEGORIES_TITLE}
         </p>
       </div>

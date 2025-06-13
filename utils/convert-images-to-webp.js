@@ -35,16 +35,29 @@ async function convertirImagenesAWebp(files) {
     }
 }
 
-function eliminarArchivosNoWebp(files) {
+async function eliminarArchivosNoWebp(files) {
     for (const file of files) {
         const ext = path.extname(file).toLowerCase();
         if (validExtensions.includes(ext)) {
             const filePath = path.join(imagesDir, file);
-            try {
-                fs.unlinkSync(filePath);
-                console.log(`Eliminado: ${file}`);
-            } catch (e) {
-                console.error(`Error eliminando ${file}:`, e);
+            let intentos = 0;
+            const maxIntentos = 3;
+
+            while (intentos < maxIntentos) {
+                try {
+                    // Esperar un poco antes de intentar eliminar
+                    await new Promise(resolve => setTimeout(resolve, 1000));
+                    fs.unlinkSync(filePath);
+                    console.log(`Eliminado: ${file}`);
+                    break;
+                } catch (e) {
+                    intentos++;
+                    if (intentos === maxIntentos) {
+                        console.error(`Error eliminando ${file} después de ${maxIntentos} intentos:`, e);
+                    } else {
+                        console.log(`Intento ${intentos} fallido para eliminar ${file}, reintentando...`);
+                    }
+                }
             }
         }
     }
@@ -74,6 +87,6 @@ fs.readdir(imagesDir, async (err, files) => {
     }
 
     await convertirImagenesAWebp(files);
-    eliminarArchivosNoWebp(files);
+    await eliminarArchivosNoWebp(files);
     actualizarRutasImagenes();
 });
