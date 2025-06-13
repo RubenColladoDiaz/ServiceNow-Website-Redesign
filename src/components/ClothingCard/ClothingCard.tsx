@@ -37,7 +37,7 @@ const ClothingCard: React.FC<ClothingCardProps> = ({
           -{discount}%
         </span>
       )}
-      <img src={image} alt={title} className="w-full h-full" />
+      <img src={image} alt={title} className="w-full h-full" loading="lazy" />
       <h2 className="mt-2 text-lg font-semibold">{title}</h2>
       <div className="flex items-center justify-center gap-2">
         {typeof discount === "number" && discount > 0 ? (

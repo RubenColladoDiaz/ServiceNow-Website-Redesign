@@ -37,6 +37,7 @@ const Categories: React.FC = () => {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.2 * i, duration: 0.6 }}
               whileHover={{ scale: 1.12, rotate: 2 }}
+              loading="lazy"
             />
             <motion.p
               className="absolute bottom-0 left-0 w-full text-white text-3xl font-bold rounded-b-2xl py-3 bg-black bg-opacity-40 text-center"

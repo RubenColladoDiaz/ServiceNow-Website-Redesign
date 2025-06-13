@@ -31,6 +31,7 @@ const Home: React.FC = () => {
             src={logoImages[0].path}
             alt={logoImages[0].path}
             className="w-[700px] drop-shadow-2xl rounded-2xl p-6 border-4 border-white"
+            loading="lazy"
           />
         </div>
       </div>

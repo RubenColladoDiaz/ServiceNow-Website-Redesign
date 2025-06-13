@@ -16,7 +16,12 @@ const Footer: React.FC = () => {
   return (
     <div className="flex justify-between items-center bg-green-600 p-10 px-28">
       <div className="flex items-center gap-4">
-        <img className="h-6" src={logoImages[1].path} alt={logoImages[1].alt} />
+        <img
+          className="h-6"
+          src={logoImages[1].path}
+          alt={logoImages[1].alt}
+          loading="lazy"
+        />
         <span className="text-base text-white text-opacity-50 ml-6">|</span>
         <p className="text-base ml-6 text-white">
           The world works with ServiceNow®

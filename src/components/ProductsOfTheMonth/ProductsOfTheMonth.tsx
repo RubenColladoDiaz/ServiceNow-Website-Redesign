@@ -57,6 +57,7 @@ const ProductsOfTheMonth: React.FC = () => {
               src={iconImages[0].path}
               alt={iconImages[0].alt}
               className="w-20"
+              loading="lazy"
             />
           </div>
           <div>
@@ -75,6 +76,7 @@ const ProductsOfTheMonth: React.FC = () => {
               transition={{ delay: 0.2 * i, duration: 0.6 }}
               whileHover={{ scale: 1.08, rotate: 2 }}
               onClick={() => handleImageClick(src)}
+              loading="lazy"
             />
           ))}
         </div>

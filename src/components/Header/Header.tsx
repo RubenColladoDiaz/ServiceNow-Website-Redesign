@@ -256,6 +256,7 @@ const Header: React.FC = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, type: "spring" }}
                   whileHover={{ scale: 1.08, rotate: 2 }}
+                  loading="lazy"
                 />
               </NavLink>
             </li>
