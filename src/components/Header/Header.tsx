@@ -347,7 +347,7 @@ const Header: React.FC = () => {
                 />
               )}
               <button
-                className="relative ml-4 bg-transparent shadow-none border-none"
+                className="relative bg-transparent shadow-none border-none"
                 aria-label="Ver carrito"
                 onClick={() => setCartOpen(true)}
               >
