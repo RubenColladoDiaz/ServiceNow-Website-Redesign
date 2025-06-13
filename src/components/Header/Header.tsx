@@ -1,4 +1,10 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, {
+  useEffect,
+  useRef,
+  useState,
+  useMemo,
+  useCallback,
+} from "react";
 import { NavLink } from "react-router-dom";
 import "./Header.css";
 import { motion } from "framer-motion";
@@ -21,16 +27,49 @@ function SearchToggle() {
   const [showResults, setShowResults] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
 
-  // Unimos todos los productos en un solo array
-  const allProducts = [
-    ...clothesImages,
-    ...accessoriesImages,
-    ...technologyImages,
-  ];
+  const allProducts = useMemo(
+    () => [...clothesImages, ...accessoriesImages, ...technologyImages],
+    [clothesImages, accessoriesImages, technologyImages],
+  );
 
-  // Filtramos los productos por el texto de búsqueda
-  const filteredProducts = allProducts.filter((product) =>
-    product.title.toLowerCase().includes(searchText.toLowerCase()),
+  const filteredProducts = useMemo(
+    () =>
+      allProducts.filter((product) =>
+        product.title.toLowerCase().includes(searchText.toLowerCase()),
+      ),
+    [allProducts, searchText],
+  );
+
+  const handleResultClick = useCallback(
+    (product: ProductType) => {
+      let basePath = "/";
+      if (product.category) {
+        if (
+          ["tshirts", "shirts", "jackets", "pants", "shoes"].includes(
+            product.category,
+          )
+        ) {
+          basePath = `/clothing/${product.category}`;
+        } else if (
+          ["backpacks", "caps", "watches", "rings", "belts"].includes(
+            product.category,
+          )
+        ) {
+          basePath = `/accessories/${product.category}`;
+        } else if (
+          ["laptops", "mice", "keyboards", "headphones"].includes(
+            product.category,
+          )
+        ) {
+          basePath = `/technology/${product.category}`;
+        }
+      }
+      window.location.href = basePath;
+      setIsSearching(false);
+      setShowResults(false);
+      setSearchText("");
+    },
+    [setIsSearching, setShowResults, setSearchText],
   );
 
   useEffect(() => {
@@ -44,34 +83,6 @@ function SearchToggle() {
     | ClothesImagesInterface
     | AccessoriesImagesInterface
     | TechnologyImagesInterface;
-  const handleResultClick = (product: ProductType) => {
-    let basePath = "/";
-    if (product.category) {
-      if (
-        ["tshirts", "shirts", "jackets", "pants", "shoes"].includes(
-          product.category,
-        )
-      ) {
-        basePath = `/clothing/${product.category}`;
-      } else if (
-        ["backpacks", "caps", "watches", "rings", "belts"].includes(
-          product.category,
-        )
-      ) {
-        basePath = `/accessories/${product.category}`;
-      } else if (
-        ["laptops", "mice", "keyboards", "headphones"].includes(
-          product.category,
-        )
-      ) {
-        basePath = `/technology/${product.category}`;
-      }
-    }
-    window.location.href = basePath;
-    setIsSearching(false);
-    setShowResults(false);
-    setSearchText("");
-  };
 
   return (
     <div className="relative flex items-center h-10">
