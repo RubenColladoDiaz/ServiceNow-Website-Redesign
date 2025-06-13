@@ -52,7 +52,7 @@ const CartModal: React.FC<CartModalProps> = ({ open, onClose }) => {
           <div className="flex flex-col gap-8 max-h-[55vh] overflow-y-auto">
             {items.map((item) => (
               <div
-                key={`${item.id}-${item.size || "no-size"}`}
+                key={`${item.id}-${item.size ?? "no-size"}`}
                 className="flex items-center gap-6 border-b pb-6"
               >
                 <img

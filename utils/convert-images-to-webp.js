@@ -35,30 +35,30 @@ async function convertirImagenesAWebp(files) {
     }
 }
 
+async function intentarEliminarArchivo(filePath, fileName, maxIntentos = 3) {
+    for (let intento = 1; intento <= maxIntentos; intento++) {
+        try {
+            await new Promise(resolve => setTimeout(resolve, 1000));
+            fs.unlinkSync(filePath);
+            console.log(`Eliminado: ${fileName}`);
+            return true;
+        } catch (e) {
+            if (intento === maxIntentos) {
+                console.error(`Error eliminando ${fileName} después de ${maxIntentos} intentos:`, e);
+                return false;
+            }
+            console.log(`Intento ${intento} fallido para eliminar ${fileName}, reintentando...`);
+        }
+    }
+    return false;
+}
+
 async function eliminarArchivosNoWebp(files) {
     for (const file of files) {
         const ext = path.extname(file).toLowerCase();
         if (validExtensions.includes(ext)) {
             const filePath = path.join(imagesDir, file);
-            let intentos = 0;
-            const maxIntentos = 3;
-
-            while (intentos < maxIntentos) {
-                try {
-                    // Esperar un poco antes de intentar eliminar
-                    await new Promise(resolve => setTimeout(resolve, 1000));
-                    fs.unlinkSync(filePath);
-                    console.log(`Eliminado: ${file}`);
-                    break;
-                } catch (e) {
-                    intentos++;
-                    if (intentos === maxIntentos) {
-                        console.error(`Error eliminando ${file} después de ${maxIntentos} intentos:`, e);
-                    } else {
-                        console.log(`Intento ${intentos} fallido para eliminar ${file}, reintentando...`);
-                    }
-                }
-            }
+            await intentarEliminarArchivo(filePath, file);
         }
     }
 }

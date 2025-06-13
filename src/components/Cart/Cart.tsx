@@ -12,7 +12,7 @@ const Cart: React.FC = () => {
       <AnimatePresence>
         {items.map((item) => (
           <motion.div
-            key={`${item.id}-${item.size || "no-size"}`}
+            key={`${item.id}-${item.size ?? "no-size"}`}
             initial={{ opacity: 0, x: 100 }}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: 100 }}

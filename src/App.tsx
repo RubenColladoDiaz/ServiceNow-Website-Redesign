@@ -1,5 +1,5 @@
 import React, { Suspense } from "react";
-import { BrowserRouter as Router } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import {
   ProductImageProvider,
   IconImageProvider,
@@ -7,7 +7,6 @@ import {
 } from "./context";
 import { CartProvider } from "./context/CartContextDefinition";
 import { Header, Footer } from "./components";
-import { Routes, Route } from "react-router-dom";
 import { ROUTES } from "./constants";
 
 // Lazy load page components

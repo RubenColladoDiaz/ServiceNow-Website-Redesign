@@ -38,7 +38,7 @@ const ClothingCard: React.FC<ClothingCardProps> = ({
       title,
       price,
       image,
-      size: selectedSize || undefined,
+      size: selectedSize ?? undefined,
       quantity: 1,
       discount,
     });
