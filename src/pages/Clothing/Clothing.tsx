@@ -5,8 +5,8 @@ import { useProductImageContext } from "../../hooks";
 import { CLOTHING_CATEGORIES, UI_TEXT, ROUTES } from "../../constants";
 
 const sections = CLOTHING_CATEGORIES.map((cat) => ({
-  name: cat,
-  path: `${ROUTES.CLOTHING}/${cat.toLowerCase().replace(/\s/g, "")}`,
+  name: cat.charAt(0).toUpperCase() + cat.slice(1),
+  path: `${ROUTES.CLOTHING}/${cat}`,
 }));
 
 const Clothing: React.FC = () => {
@@ -15,10 +15,15 @@ const Clothing: React.FC = () => {
 
   let filteredClothes = clothesImages;
   if (category !== "all") {
+    const normalizedCategory = category
+      .toLowerCase()
+      .replace(/\s/g, "")
+      .replace(/-/g, "");
     filteredClothes = clothesImages.filter(
-      (item) => item.category === category,
+      (item) => item.category === normalizedCategory,
     );
   }
+
   return (
     <div className="mb-10">
       <NavLink to={ROUTES.CLOTHING}>

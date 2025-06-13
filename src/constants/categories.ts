@@ -1,9 +1,9 @@
 export const CLOTHING_CATEGORIES = [
-  "T-Shirts",
-  "Shirts",
-  "Jackets",
-  "Pants",
-  "Shoes",
+  "tshirts",
+  "shirts",
+  "jackets",
+  "pants",
+  "shoes",
 ];
 
 export const ACCESSORIES_CATEGORIES = [
