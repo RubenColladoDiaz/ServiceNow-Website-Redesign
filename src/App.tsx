@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Suspense, lazy } from "react";
 import "./App.css";
 import { Header, Footer } from "./components";
 import {
@@ -6,11 +7,20 @@ import {
   LogoImageProvider,
   IconImageProvider,
 } from "./context";
-import Clothing from "./pages/Clothing/Clothing";
-import Accessories from "./pages/Accessories/Accessories";
-import Technology from "./pages/Technology/Technology";
-import Home from "./pages/Home/Home";
 import { ROUTES } from "./constants";
+
+// Lazy load page components
+const Home = lazy(() => import("./pages/Home/Home"));
+const Clothing = lazy(() => import("./pages/Clothing/Clothing"));
+const Accessories = lazy(() => import("./pages/Accessories/Accessories"));
+const Technology = lazy(() => import("./pages/Technology/Technology"));
+
+// Loading component
+const LoadingFallback = () => (
+  <div className="flex items-center justify-center min-h-screen">
+    <div className="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-white"></div>
+  </div>
+);
 
 function App() {
   return (
@@ -21,24 +31,29 @@ function App() {
             <div className="min-h-screen flex flex-col">
               <Header />
               <main className="flex-1">
-                <Routes>
-                  <Route path={ROUTES.HOME} element={<Home />} />
-                  <Route path={ROUTES.CLOTHING} element={<Clothing />} />
-                  <Route
-                    path={ROUTES.CLOTHING_CATEGORY}
-                    element={<Clothing />}
-                  />
-                  <Route
-                    path={ROUTES.ACCESSORIES_CATEGORY}
-                    element={<Accessories />}
-                  />
-                  <Route path={ROUTES.ACCESSORIES} element={<Accessories />} />
-                  <Route path={ROUTES.TECHNOLOGY} element={<Technology />} />
-                  <Route
-                    path={ROUTES.TECHNOLOGY_CATEGORY}
-                    element={<Technology />}
-                  />
-                </Routes>
+                <Suspense fallback={<LoadingFallback />}>
+                  <Routes>
+                    <Route path={ROUTES.HOME} element={<Home />} />
+                    <Route path={ROUTES.CLOTHING} element={<Clothing />} />
+                    <Route
+                      path={ROUTES.CLOTHING_CATEGORY}
+                      element={<Clothing />}
+                    />
+                    <Route
+                      path={ROUTES.ACCESSORIES_CATEGORY}
+                      element={<Accessories />}
+                    />
+                    <Route
+                      path={ROUTES.ACCESSORIES}
+                      element={<Accessories />}
+                    />
+                    <Route path={ROUTES.TECHNOLOGY} element={<Technology />} />
+                    <Route
+                      path={ROUTES.TECHNOLOGY_CATEGORY}
+                      element={<Technology />}
+                    />
+                  </Routes>
+                </Suspense>
               </main>
               <Footer />
             </div>
