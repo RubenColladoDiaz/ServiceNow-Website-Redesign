@@ -2,8 +2,8 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import { motion } from "framer-motion";
 
-import { useProductImageContext } from "../../context/ProductImageContext";
-import { useIconImageContext } from "../../context/IconImageContext";
+import { useProductImageContext } from "../../hooks/useProductImageContext";
+import { useIconImageContext } from "../../hooks/useIconImageContext";
 
 const Categories: React.FC = () => {
   const { productImages } = useProductImageContext();

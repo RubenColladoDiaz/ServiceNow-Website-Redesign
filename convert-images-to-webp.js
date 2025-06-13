@@ -5,6 +5,13 @@ import sharp from 'sharp';
 const imagesDir = path.join(process.cwd(), 'public', 'images');
 const validExtensions = ['.jpg', '.jpeg', '.png', '.avif'];
 
+function todasImagenesSonWebp(files) {
+    return files.every(file => {
+        const ext = path.extname(file).toLowerCase();
+        return ext === '.webp' || ext === '.svg';
+    });
+}
+
 async function convertirImagenesAWebp(files) {
     for (const file of files) {
         const ext = path.extname(file).toLowerCase();
@@ -58,6 +65,11 @@ function actualizarRutasImagenes() {
 fs.readdir(imagesDir, async (err, files) => {
     if (err) {
         console.error('Error leyendo la carpeta de imágenes:', err);
+        return;
+    }
+
+    if (todasImagenesSonWebp(files)) {
+        console.log('Todas las imágenes ya están en formato WebP. No es necesario realizar conversiones.');
         return;
     }
 

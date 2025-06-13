@@ -2,7 +2,7 @@ import React from "react";
 import { useParams, NavLink } from "react-router-dom";
 import SectionsBar from "../../components/SectionsBar/SectionsBar";
 import ClothingCard from "../../components/ClothingCard/ClothingCard";
-import { useProductImageContext } from "../../context/ProductImageContext";
+import { useProductImageContext } from "../../hooks/useProductImageContext";
 
 const sections = [
   { name: "T-Shirts", path: "/clothing/tshirts" },
@@ -31,9 +31,9 @@ const Clothing: React.FC = () => {
       </NavLink>
       <SectionsBar sections={sections} />
       <div className="grid grid-cols-4 mt-10">
-        {filteredClothes.map((item, index) => (
+        {filteredClothes.map((item) => (
           <ClothingCard
-            key={index}
+            key={item.id}
             image={item.path}
             title={item.title}
             price={item.price}

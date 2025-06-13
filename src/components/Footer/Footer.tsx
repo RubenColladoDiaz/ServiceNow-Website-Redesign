@@ -8,7 +8,7 @@ import {
   FaTiktok,
 } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import { useLogoImageContext } from "../../context/LogoImageContext";
+import { useLogoImageContext } from "../../hooks/useLogoImageContext";
 import { motion } from "framer-motion";
 
 const Footer: React.FC = () => {

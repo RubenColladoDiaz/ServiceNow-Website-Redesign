@@ -1,5 +1,7 @@
-import { ProductImageRoute } from "../types/productImagesRoute";
-import { ClothesImagesInterface } from "../types/productImagesRoute";
+import {
+  ProductImageRoute,
+  ClothesImagesInterface,
+} from "../types/productImagesRoute";
 
 export const productImagesRoutes: ProductImageRoute[] = [
   { id: "1", path: "/images/servicenowBackpack.webp", alt: "Backpack Image" },

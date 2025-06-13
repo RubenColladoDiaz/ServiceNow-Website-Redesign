@@ -1,6 +1,6 @@
 import React from "react";
 import ClothingCard from "../../components/ClothingCard/ClothingCard";
-import { useProductImageContext } from "../../context/ProductImageContext";
+import { useProductImageContext } from "../../hooks/useProductImageContext";
 import { useParams, NavLink } from "react-router-dom";
 import SectionsBar from "../../components/SectionsBar/SectionsBar";
 
@@ -30,9 +30,9 @@ const Technology: React.FC = () => {
       </NavLink>
       <SectionsBar sections={sections} />
       <div className="grid grid-cols-4 mt-10">
-        {filteredTechnology.map((item, index) => (
+        {filteredTechnology.map((item) => (
           <ClothingCard
-            key={index}
+            key={item.id}
             image={item.path}
             title={item.title}
             price={item.price}

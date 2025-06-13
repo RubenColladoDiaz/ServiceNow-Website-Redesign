@@ -3,9 +3,9 @@ import React, { useEffect, useRef, useState } from "react";
 import "./Header.css";
 import { motion } from "framer-motion";
 
-import { useIconImageContext } from "../../context/IconImageContext";
-import { useLogoImageContext } from "../../context/LogoImageContext";
-import { useProductImageContext } from "../../context/ProductImageContext";
+import { useIconImageContext } from "../../hooks/useIconImageContext";
+import { useLogoImageContext } from "../../hooks/useLogoImageContext";
+import { useProductImageContext } from "../../hooks/useProductImageContext";
 import {
   ClothesImagesInterface,
   AccessoriesImagesInterface,

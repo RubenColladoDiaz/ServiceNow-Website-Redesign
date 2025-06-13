@@ -1,51 +1,28 @@
-import React, { createContext, useContext } from "react";
-import { ProductImageRoute } from "../types/productImagesRoute";
-import { ClothesImagesInterface } from "../types/productImagesRoute";
-import {
-  AccessoriesImagesInterface,
-  TechnologyImagesInterface,
-} from "../types/productImagesRoute";
+import React, { useMemo } from "react";
 import { productImagesRoutes } from "../data/productImagesRoutes";
 import { clothesImagesRoutes } from "../data/productImagesRoutes";
 import {
   accessoriesImagesRoutes,
   technologyImagesRoutes,
 } from "../data/productImagesRoutes";
-
-interface ProductImageContextType {
-  productImages: ProductImageRoute[];
-  clothesImages: ClothesImagesInterface[];
-  accessoriesImages: AccessoriesImagesInterface[];
-  technologyImages: TechnologyImagesInterface[];
-}
-
-const ProductImageContext = createContext<ProductImageContextType | undefined>(
-  undefined,
-);
+import { ProductImageContext } from "./ProductImageContextDefinition";
 
 export const ProductImageProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
+  const value = useMemo(
+    () => ({
+      productImages: productImagesRoutes,
+      clothesImages: clothesImagesRoutes,
+      accessoriesImages: accessoriesImagesRoutes,
+      technologyImages: technologyImagesRoutes,
+    }),
+    [],
+  );
+
   return (
-    <ProductImageContext.Provider
-      value={{
-        productImages: productImagesRoutes,
-        clothesImages: clothesImagesRoutes,
-        accessoriesImages: accessoriesImagesRoutes,
-        technologyImages: technologyImagesRoutes,
-      }}
-    >
+    <ProductImageContext.Provider value={value}>
       {children}
     </ProductImageContext.Provider>
   );
-};
-
-export const useProductImageContext = () => {
-  const context = useContext(ProductImageContext);
-  if (!context) {
-    throw new Error(
-      "useProductImageContext must be used inside a ProductImageProvider",
-    );
-  }
-  return context;
 };
