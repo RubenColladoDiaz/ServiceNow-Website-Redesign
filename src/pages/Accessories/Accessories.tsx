@@ -31,11 +31,13 @@ const Accessories: React.FC = () => {
         {filteredAccessories.map((item) => (
           <ClothingCard
             key={item.id}
+            id={item.id}
             image={item.path}
             title={item.title}
             price={item.price}
-            isNew={item.isNew}
+            isNew={item.isNew || false}
             discount={item.discount}
+            sizes={[]}
           />
         ))}
       </div>

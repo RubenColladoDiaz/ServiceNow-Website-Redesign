@@ -1,17 +1,20 @@
-import React, { useState, memo } from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { UI_TEXT } from "../../constants";
+import { UI_TEXT } from "../../constants/ui";
+import { useCartContext } from "../../hooks/useCartContext";
 
 interface ClothingCardProps {
+  id: string;
   image: string;
   title: string;
   price: number;
-  isNew?: boolean;
+  isNew: boolean;
   discount?: number;
-  sizes?: string[];
+  sizes: string[];
 }
 
 const ClothingCard: React.FC<ClothingCardProps> = ({
+  id,
   image,
   title,
   price,
@@ -20,6 +23,27 @@ const ClothingCard: React.FC<ClothingCardProps> = ({
   sizes,
 }) => {
   const [selectedSize, setSelectedSize] = useState<string | null>(null);
+  const [showSizeError, setShowSizeError] = useState(false);
+  const { addToCart } = useCartContext();
+
+  const handleBuyNow = () => {
+    if (sizes.length > 0 && !selectedSize) {
+      setShowSizeError(true);
+      return;
+    }
+
+    setShowSizeError(false);
+    addToCart({
+      id,
+      title,
+      price,
+      image,
+      size: selectedSize || undefined,
+      quantity: 1,
+      discount,
+    });
+  };
+
   return (
     <motion.div
       className="mx-16 my-10 flex flex-col items-center justify-center text-center bg-white text-black rounded-3xl py-5 hover:cursor-pointer relative"
@@ -54,25 +78,42 @@ const ClothingCard: React.FC<ClothingCardProps> = ({
           <span className="text-green-600">${price.toFixed(2)}</span>
         )}
       </div>
-      {sizes && sizes.length > 0 && (
-        <div className="mt-2 flex flex-wrap justify-center gap-2">
-          {sizes.map((size) => (
-            <button
-              key={size}
-              type="button"
-              className={`border rounded px-2 py-1 text-xs transition font-semibold ${selectedSize === size ? "bg-green-600 text-white border-green-600" : "border-gray-300"}`}
-              onClick={() => setSelectedSize(size)}
-            >
-              {size}
-            </button>
-          ))}
+      {sizes.length > 0 && (
+        <div className="mt-2 flex flex-col items-center">
+          <div className="flex flex-wrap justify-center gap-2">
+            {sizes.map((size) => (
+              <button
+                key={size}
+                type="button"
+                className={`border rounded px-2 py-1 text-xs transition font-semibold
+                  ${
+                    selectedSize === size
+                      ? "bg-green-600 text-white border-green-600"
+                      : "bg-white text-black border-gray-300"
+                  }
+                `}
+                onClick={() => {
+                  setSelectedSize(size);
+                  setShowSizeError(false);
+                }}
+              >
+                {size}
+              </button>
+            ))}
+          </div>
+          {showSizeError && (
+            <p className="text-red-500 text-sm mt-2">Please, select a size</p>
+          )}
         </div>
       )}
-      <button className="mt-4 bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-6 rounded-full transition">
+      <button
+        className="mt-4 bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-6 rounded-full transition"
+        onClick={handleBuyNow}
+      >
         {UI_TEXT.BUY_NOW}
       </button>
     </motion.div>
   );
 };
 
-export default memo(ClothingCard);
+export default ClothingCard;

@@ -1,19 +1,20 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Suspense, lazy } from "react";
-import "./App.css";
-import { Header, Footer } from "./components";
+import React, { Suspense } from "react";
+import { BrowserRouter as Router } from "react-router-dom";
 import {
   ProductImageProvider,
-  LogoImageProvider,
   IconImageProvider,
+  LogoImageProvider,
 } from "./context";
+import { CartProvider } from "./context/CartContextDefinition";
+import { Header, Footer } from "./components";
+import { Routes, Route } from "react-router-dom";
 import { ROUTES } from "./constants";
 
 // Lazy load page components
-const Home = lazy(() => import("./pages/Home/Home"));
-const Clothing = lazy(() => import("./pages/Clothing/Clothing"));
-const Accessories = lazy(() => import("./pages/Accessories/Accessories"));
-const Technology = lazy(() => import("./pages/Technology/Technology"));
+const Home = React.lazy(() => import("./pages/Home/Home"));
+const Clothing = React.lazy(() => import("./pages/Clothing/Clothing"));
+const Accessories = React.lazy(() => import("./pages/Accessories/Accessories"));
+const Technology = React.lazy(() => import("./pages/Technology/Technology"));
 
 // Loading component
 const LoadingFallback = () => (
@@ -22,46 +23,51 @@ const LoadingFallback = () => (
   </div>
 );
 
-function App() {
+const App: React.FC = () => {
   return (
-    <IconImageProvider>
-      <LogoImageProvider>
+    <LogoImageProvider>
+      <Router>
         <ProductImageProvider>
-          <BrowserRouter>
-            <div className="min-h-screen flex flex-col">
-              <Header />
-              <main className="flex-1">
-                <Suspense fallback={<LoadingFallback />}>
-                  <Routes>
-                    <Route path={ROUTES.HOME} element={<Home />} />
-                    <Route path={ROUTES.CLOTHING} element={<Clothing />} />
-                    <Route
-                      path={ROUTES.CLOTHING_CATEGORY}
-                      element={<Clothing />}
-                    />
-                    <Route
-                      path={ROUTES.ACCESSORIES_CATEGORY}
-                      element={<Accessories />}
-                    />
-                    <Route
-                      path={ROUTES.ACCESSORIES}
-                      element={<Accessories />}
-                    />
-                    <Route path={ROUTES.TECHNOLOGY} element={<Technology />} />
-                    <Route
-                      path={ROUTES.TECHNOLOGY_CATEGORY}
-                      element={<Technology />}
-                    />
-                  </Routes>
-                </Suspense>
-              </main>
-              <Footer />
-            </div>
-          </BrowserRouter>
+          <IconImageProvider>
+            <CartProvider>
+              <div className="min-h-screen flex flex-col">
+                <Header />
+                <main className="flex-1">
+                  <Suspense fallback={<LoadingFallback />}>
+                    <Routes>
+                      <Route path={ROUTES.HOME} element={<Home />} />
+                      <Route path={ROUTES.CLOTHING} element={<Clothing />} />
+                      <Route
+                        path={ROUTES.CLOTHING_CATEGORY}
+                        element={<Clothing />}
+                      />
+                      <Route
+                        path={ROUTES.ACCESSORIES_CATEGORY}
+                        element={<Accessories />}
+                      />
+                      <Route
+                        path={ROUTES.ACCESSORIES}
+                        element={<Accessories />}
+                      />
+                      <Route
+                        path={ROUTES.TECHNOLOGY}
+                        element={<Technology />}
+                      />
+                      <Route
+                        path={ROUTES.TECHNOLOGY_CATEGORY}
+                        element={<Technology />}
+                      />
+                    </Routes>
+                  </Suspense>
+                </main>
+                <Footer />
+              </div>
+            </CartProvider>
+          </IconImageProvider>
         </ProductImageProvider>
-      </LogoImageProvider>
-    </IconImageProvider>
+      </Router>
+    </LogoImageProvider>
   );
-}
+};
 
 export default App;

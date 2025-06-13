@@ -17,6 +17,8 @@ import {
   AccessoriesImagesInterface,
   TechnologyImagesInterface,
 } from "../../types/productImagesRoute";
+import { useCartContext } from "../../hooks/useCartContext";
+import CartModal from "../Cart/CartModal.tsx";
 
 function SearchToggle() {
   const { iconImages } = useIconImageContext();
@@ -135,7 +137,7 @@ function SearchToggle() {
         </div>
       ) : (
         <button
-          className="p-2 rounded-full hover:bg-white/20"
+          className="p-2 rounded-full hover:bg-white/20 bg-transparent shadow-none border-none"
           onClick={() => setIsSearching(true)}
           aria-label="Buscar productos"
         >
@@ -208,6 +210,8 @@ const Header: React.FC = () => {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [sessionUser, setSessionUser] = useState<string | null>(getSession());
+  const { totalItems } = useCartContext();
+  const [cartOpen, setCartOpen] = useState(false);
 
   useEffect(() => {
     setSessionUser(getSession());
@@ -342,6 +346,31 @@ const Header: React.FC = () => {
                   }}
                 />
               )}
+              <button
+                className="relative ml-4 bg-transparent shadow-none border-none"
+                aria-label="Ver carrito"
+                onClick={() => setCartOpen(true)}
+              >
+                <svg
+                  width="28"
+                  height="28"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13l-1.35 2.7A1 1 0 007.5 17h9a1 1 0 00.85-1.53L17 13M7 13V6a1 1 0 011-1h6a1 1 0 011 1v7"
+                  />
+                </svg>
+                {totalItems > 0 && (
+                  <span className="absolute -top-2 -right-2 bg-red-500 text-xs rounded-full px-2 py-0.5 font-bold">
+                    {totalItems}
+                  </span>
+                )}
+              </button>
             </li>
           </ul>
         </nav>
@@ -409,6 +438,7 @@ const Header: React.FC = () => {
           )}
         </div>
       </Modal>
+      <CartModal open={cartOpen} onClose={() => setCartOpen(false)} />
     </header>
   );
 };

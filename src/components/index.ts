@@ -4,3 +4,4 @@ export { default as Categories } from "./Categories/Categories";
 export { default as SectionsBar } from "./SectionsBar/SectionsBar";
 export { default as ClothingCard } from "./ClothingCard/ClothingCard";
 export { default as Footer } from "./Footer/Footer";
+export { default as Cart } from "./Cart/Cart";

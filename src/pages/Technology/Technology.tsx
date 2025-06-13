@@ -1,7 +1,7 @@
 import React from "react";
-import { ClothingCard, SectionsBar } from "../../components";
+import { NavLink, useParams } from "react-router-dom";
+import { SectionsBar, ClothingCard } from "../../components";
 import { useProductImageContext } from "../../hooks";
-import { useParams, NavLink } from "react-router-dom";
 import { TECHNOLOGY_CATEGORIES, UI_TEXT, ROUTES } from "../../constants";
 
 const sections = TECHNOLOGY_CATEGORIES.map((cat) => ({
@@ -31,11 +31,13 @@ const Technology: React.FC = () => {
         {filteredTechnology.map((item) => (
           <ClothingCard
             key={item.id}
+            id={item.id}
             image={item.path}
             title={item.title}
             price={item.price}
-            isNew={item.isNew}
+            isNew={item.isNew || false}
             discount={item.discount}
+            sizes={[]}
           />
         ))}
       </div>
