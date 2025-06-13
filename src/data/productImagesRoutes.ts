@@ -47,6 +47,9 @@ export const clothesImagesRoutes: ClothesImagesInterface[] = [
     title: "Badass Sweater",
     price: 49.99,
     category: "jackets",
+    isNew: true,
+    discount: 20,
+    sizes: ["S", "M", "L", "XL"],
   },
   {
     id: "2",
@@ -55,6 +58,9 @@ export const clothesImagesRoutes: ClothesImagesInterface[] = [
     title: "ServiceNow T-Shirt",
     price: 19.99,
     category: "tshirts",
+    isNew: false,
+    discount: 0,
+    sizes: ["S", "M", "L", "XL"],
   },
   {
     id: "3",
@@ -63,6 +69,9 @@ export const clothesImagesRoutes: ClothesImagesInterface[] = [
     title: "ServiceNow T-Shirt",
     price: 24.99,
     category: "tshirts",
+    isNew: true,
+    discount: 10,
+    sizes: ["S", "M", "L", "XL"],
   },
   {
     id: "4",
@@ -71,6 +80,9 @@ export const clothesImagesRoutes: ClothesImagesInterface[] = [
     title: "ServiceNow T-Shirt",
     price: 22.99,
     category: "tshirts",
+    isNew: false,
+    discount: 0,
+    sizes: ["S", "M", "L", "XL"],
   },
   {
     id: "5",
@@ -79,6 +91,9 @@ export const clothesImagesRoutes: ClothesImagesInterface[] = [
     title: "ServiceNow T-Shirt",
     price: 21.99,
     category: "tshirts",
+    isNew: true,
+    discount: 10,
+    sizes: ["S", "M", "L", "XL"],
   },
   {
     id: "6",
@@ -87,6 +102,9 @@ export const clothesImagesRoutes: ClothesImagesInterface[] = [
     title: "ServiceNow T-Shirt",
     price: 18.99,
     category: "tshirts",
+    isNew: false,
+    discount: 0,
+    sizes: ["S", "M", "L", "XL"],
   },
   {
     id: "7",
@@ -95,6 +113,9 @@ export const clothesImagesRoutes: ClothesImagesInterface[] = [
     title: "ServiceNow Sweater",
     price: 38.99,
     category: "jackets",
+    isNew: true,
+    discount: 20,
+    sizes: ["S", "M", "L", "XL"],
   },
   {
     id: "8",
@@ -103,6 +124,9 @@ export const clothesImagesRoutes: ClothesImagesInterface[] = [
     title: "ServiceNow Sweater",
     price: 28.55,
     category: "jackets",
+    isNew: false,
+    discount: 0,
+    sizes: ["S", "M", "L", "XL"],
   },
   {
     id: "9",
@@ -111,6 +135,9 @@ export const clothesImagesRoutes: ClothesImagesInterface[] = [
     title: "ServiceNow Sweater",
     price: 19.99,
     category: "jackets",
+    isNew: true,
+    discount: 10,
+    sizes: ["S", "M", "L", "XL"],
   },
   {
     id: "10",
@@ -119,6 +146,9 @@ export const clothesImagesRoutes: ClothesImagesInterface[] = [
     title: "ServiceNow Shoes",
     price: 19.99,
     category: "shoes",
+    isNew: false,
+    discount: 0,
+    sizes: ["S", "M", "L", "XL"],
   },
   {
     id: "11",
@@ -127,6 +157,9 @@ export const clothesImagesRoutes: ClothesImagesInterface[] = [
     title: "ServiceNow Shoes",
     price: 49.99,
     category: "shoes",
+    isNew: true,
+    discount: 10,
+    sizes: ["S", "M", "L", "XL"],
   },
   {
     id: "12",
@@ -135,6 +168,9 @@ export const clothesImagesRoutes: ClothesImagesInterface[] = [
     title: "ServiceNow Shoes",
     price: 29.99,
     category: "shoes",
+    isNew: false,
+    discount: 0,
+    sizes: ["S", "M", "L", "XL"],
   },
   {
     id: "13",
@@ -143,6 +179,9 @@ export const clothesImagesRoutes: ClothesImagesInterface[] = [
     title: "ServiceNow Shoes",
     price: 59.99,
     category: "shoes",
+    isNew: true,
+    discount: 10,
+    sizes: ["S", "M", "L", "XL"],
   },
   {
     id: "16",
@@ -151,6 +190,9 @@ export const clothesImagesRoutes: ClothesImagesInterface[] = [
     title: "ServiceNow Pants",
     price: 12.99,
     category: "pants",
+    isNew: false,
+    discount: 0,
+    sizes: ["S", "M", "L", "XL"],
   },
   {
     id: "17",
@@ -159,6 +201,9 @@ export const clothesImagesRoutes: ClothesImagesInterface[] = [
     title: "ServiceNow Pants",
     price: 19.99,
     category: "pants",
+    isNew: true,
+    discount: 10,
+    sizes: ["S", "M", "L", "XL"],
   },
   {
     id: "18",
@@ -167,6 +212,9 @@ export const clothesImagesRoutes: ClothesImagesInterface[] = [
     title: "ServiceNow Pants",
     price: 22.99,
     category: "pants",
+    isNew: false,
+    discount: 0,
+    sizes: ["S", "M", "L", "XL"],
   },
   {
     id: "19",
@@ -175,6 +223,9 @@ export const clothesImagesRoutes: ClothesImagesInterface[] = [
     title: "ServiceNow Pants",
     price: 8.99,
     category: "pants",
+    isNew: true,
+    discount: 10,
+    sizes: ["S", "M", "L", "XL"],
   },
   {
     id: "20",
@@ -183,6 +234,9 @@ export const clothesImagesRoutes: ClothesImagesInterface[] = [
     title: "ServiceNow Shirt",
     price: 120.99,
     category: "shirts",
+    isNew: false,
+    discount: 0,
+    sizes: ["S", "M", "L", "XL"],
   },
   {
     id: "21",
@@ -191,6 +245,9 @@ export const clothesImagesRoutes: ClothesImagesInterface[] = [
     title: "ServiceNow Shirt",
     price: 130.99,
     category: "shirts",
+    isNew: true,
+    discount: 10,
+    sizes: ["S", "M", "L", "XL"],
   },
   {
     id: "22",
@@ -199,6 +256,9 @@ export const clothesImagesRoutes: ClothesImagesInterface[] = [
     title: "ServiceNow Shirt",
     price: 220.99,
     category: "shirts",
+    isNew: false,
+    discount: 0,
+    sizes: ["S", "M", "L", "XL"],
   },
   {
     id: "23",
@@ -207,6 +267,9 @@ export const clothesImagesRoutes: ClothesImagesInterface[] = [
     title: "ServiceNow Shirt",
     price: 20.99,
     category: "shirts",
+    isNew: true,
+    discount: 10,
+    sizes: ["S", "M", "L", "XL"],
   },
 ];
 
@@ -218,6 +281,8 @@ export const accessoriesImagesRoutes = [
     title: "ServiceNow Backpack",
     price: 39.99,
     category: "backpacks",
+    isNew: true,
+    discount: 10,
   },
   {
     id: "2",
@@ -226,6 +291,8 @@ export const accessoriesImagesRoutes = [
     title: "ServiceNow Backpack",
     price: 44.99,
     category: "backpacks",
+    isNew: false,
+    discount: 0,
   },
   {
     id: "3",
@@ -234,6 +301,8 @@ export const accessoriesImagesRoutes = [
     title: "ServiceNow Cap",
     price: 14.99,
     category: "caps",
+    isNew: true,
+    discount: 10,
   },
   {
     id: "4",
@@ -242,6 +311,8 @@ export const accessoriesImagesRoutes = [
     title: "ServiceNow Watch",
     price: 99.99,
     category: "watches",
+    isNew: false,
+    discount: 0,
   },
   {
     id: "5",
@@ -250,6 +321,8 @@ export const accessoriesImagesRoutes = [
     title: "ServiceNow Ring",
     price: 29.99,
     category: "rings",
+    isNew: true,
+    discount: 10,
   },
   {
     id: "6",
@@ -258,6 +331,8 @@ export const accessoriesImagesRoutes = [
     title: "ServiceNow Belt",
     price: 24.99,
     category: "belts",
+    isNew: false,
+    discount: 0,
   },
 ];
 
@@ -269,6 +344,8 @@ export const technologyImagesRoutes = [
     title: "ServiceNow Laptop",
     price: 899.99,
     category: "laptops",
+    isNew: true,
+    discount: 15,
   },
   {
     id: "2",
@@ -277,6 +354,8 @@ export const technologyImagesRoutes = [
     title: "ServiceNow Mouse",
     price: 29.99,
     category: "mice",
+    isNew: false,
+    discount: 0,
   },
   {
     id: "3",
@@ -285,6 +364,8 @@ export const technologyImagesRoutes = [
     title: "ServiceNow Keyboard",
     price: 49.99,
     category: "keyboards",
+    isNew: true,
+    discount: 10,
   },
   {
     id: "4",
@@ -293,5 +374,7 @@ export const technologyImagesRoutes = [
     title: "ServiceNow Headphones",
     price: 79.99,
     category: "headphones",
+    isNew: false,
+    discount: 0,
   },
 ];

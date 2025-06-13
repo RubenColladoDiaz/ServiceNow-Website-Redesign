@@ -2,6 +2,8 @@ export interface ProductImageRoute {
   id: string;
   path: string;
   alt?: string;
+  isNew?: boolean;
+  discount?: number;
 }
 
 export interface ClothesImagesInterface {
@@ -11,6 +13,9 @@ export interface ClothesImagesInterface {
   title: string;
   price: number;
   category: string;
+  isNew?: boolean;
+  discount?: number;
+  sizes?: string[];
 }
 
 export interface AccessoriesImagesInterface {
@@ -20,6 +25,8 @@ export interface AccessoriesImagesInterface {
   title: string;
   price: number;
   category: string;
+  isNew?: boolean;
+  discount?: number;
 }
 
 export interface TechnologyImagesInterface {
@@ -29,4 +36,6 @@ export interface TechnologyImagesInterface {
   title: string;
   price: number;
   category: string;
+  isNew?: boolean;
+  discount?: number;
 }

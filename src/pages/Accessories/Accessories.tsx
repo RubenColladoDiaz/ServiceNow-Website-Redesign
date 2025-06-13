@@ -38,6 +38,8 @@ const Accessories: React.FC = () => {
             image={item.path}
             title={item.title}
             price={item.price}
+            isNew={item.isNew}
+            discount={item.discount}
           />
         ))}
       </div>

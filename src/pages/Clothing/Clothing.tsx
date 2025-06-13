@@ -9,7 +9,7 @@ const sections = [
   { name: "Shirts", path: "/clothing/shirts" },
   { name: "Jackets", path: "/clothing/jackets" },
   { name: "Pants", path: "/clothing/pants" },
-  { name: "Shoes", path: "/clothing/shoes" }
+  { name: "Shoes", path: "/clothing/shoes" },
 ];
 
 const Clothing: React.FC = () => {
@@ -19,7 +19,7 @@ const Clothing: React.FC = () => {
   let filteredClothes = clothesImages;
   if (category !== "all") {
     filteredClothes = clothesImages.filter(
-      (item) => item.category === category
+      (item) => item.category === category,
     );
   }
   return (
@@ -37,6 +37,9 @@ const Clothing: React.FC = () => {
             image={item.path}
             title={item.title}
             price={item.price}
+            isNew={item.isNew}
+            discount={item.discount}
+            sizes={item.sizes}
           />
         ))}
       </div>

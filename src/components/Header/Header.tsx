@@ -257,13 +257,13 @@ const Header: React.FC = () => {
             <li>
               <NavLink
                 to="/clothing"
-                className="font-normal hover:text-gray-300 text-white"
+                className="font-normal text-white hover:underline underline-offset-8 transition-all duration-200"
+                style={{ color: "white" }}
               >
                 <motion.span
                   initial={{ opacity: 0, y: -20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.2, duration: 0.6 }}
-                  whileHover={{ scale: 1.1, color: "#a7f3d0" }}
                 >
                   Clothing
                 </motion.span>
@@ -272,13 +272,13 @@ const Header: React.FC = () => {
             <li>
               <NavLink
                 to="/accessories"
-                className="font-normal hover:text-gray-300 text-white"
+                className="font-normal text-white hover:underline underline-offset-8 transition-all duration-200"
+                style={{ color: "white" }}
               >
                 <motion.span
                   initial={{ opacity: 0, y: -20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.4, duration: 0.6 }}
-                  whileHover={{ scale: 1.1, color: "#a7f3d0" }}
                 >
                   Accessories
                 </motion.span>
@@ -287,13 +287,13 @@ const Header: React.FC = () => {
             <li>
               <NavLink
                 to="/technology"
-                className="font-normal hover:text-gray-300 text-white"
+                className="font-normal text-white hover:underline underline-offset-8 transition-all duration-200"
+                style={{ color: "white" }}
               >
                 <motion.span
                   initial={{ opacity: 0, y: -20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.6, duration: 0.6 }}
-                  whileHover={{ scale: 1.1, color: "#a7f3d0" }}
                 >
                   Technology
                 </motion.span>
