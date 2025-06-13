@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import ProductsOfTheMonth from "../../components/ProductsOfTheMonth/ProductsOfTheMonth";
 import Categories from "../../components/Categories/Categories";
 import { useProductImageContext } from "../../context/ProductImageContext";
@@ -7,52 +7,30 @@ import { useLogoImageContext } from "../../context/LogoImageContext";
 const Home: React.FC = () => {
   const { logoImages } = useLogoImageContext();
   const { productImages } = useProductImageContext();
-  const [randomImage, setRandomImage] = useState<string>("");
-  const [isTransitioning, setIsTransitioning] = useState<boolean>(false);
-  const [lastImageIndex, setLastImageIndex] = useState<number>(-1);
 
-  useEffect(() => {
-    const randomNumber: number = Math.floor(
-      Math.random() * productImages.length,
-    );
-    setRandomImage(productImages[randomNumber].path);
-    setLastImageIndex(randomNumber);
-
-    const randomProduct = (): string => {
-      let newRandomNumber: number;
-      do {
-        newRandomNumber = Math.floor(Math.random() * productImages.length);
-      } while (newRandomNumber === lastImageIndex);
-
-      setLastImageIndex(newRandomNumber);
-      return productImages[newRandomNumber].path;
-    };
-
-    const interval = setInterval(() => {
-      setIsTransitioning(true);
-      setTimeout(() => {
-        setRandomImage(randomProduct());
-        setIsTransitioning(false);
-      }, 800);
-    }, 4000);
-    return () => clearInterval(interval);
-  }, [productImages, lastImageIndex]);
+  useEffect(() => {}, [productImages]);
 
   return (
     <div>
-      <div className="flex justify-center mt-10 mb-10 gap-40">
-        <img
-          src={logoImages[0].path}
-          alt={logoImages[0].path}
-          className="w-[650px]"
-        />
-        <div className="relative w-[550px] h-[550px]">
+      <div className="relative flex justify-center items-center h-[650px] bg-gray-200 overflow-hidden">
+        <video
+          className="absolute left-0 top-0 w-screen h-[650px] object-cover blur-sm opacity-70 z-0"
+          autoPlay
+          loop
+          muted
+          playsInline
+          style={{ pointerEvents: "none" }}
+        >
+          <source src="/videos/video.webm" type="video/webm" />
+          <source src="/videos/video.mp4" type="video/mp4" />
+          Tu navegador no soporta el video.
+        </video>
+        <div className="absolute inset-0 bg-gradient-to-b from-white/60 via-white/10 to-white/60 z-10" />
+        <div className="relative z-20 flex justify-center items-center">
           <img
-            src={randomImage}
-            alt="Products slider"
-            className={`rounded-3xl w-full h-full object-cover transition-opacity duration-1000 ${
-              isTransitioning ? "opacity-0" : "opacity-100"
-            }`}
+            src={logoImages[0].path}
+            alt={logoImages[0].path}
+            className="w-[700px] drop-shadow-2xl rounded-2xl p-6 border-4 border-white"
           />
         </div>
       </div>
