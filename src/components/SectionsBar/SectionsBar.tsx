@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import { NavLink } from "react-router-dom";
 import { UI_TEXT } from "../../constants";
 
@@ -30,4 +30,4 @@ const SectionsBar: React.FC<SectionsBarProps> = ({ sections }) => {
   );
 };
 
-export default SectionsBar;
+export default memo(SectionsBar);

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { useProductImageContext, useIconImageContext } from "../../hooks";
@@ -83,4 +83,4 @@ const ProductsOfTheMonth: React.FC = () => {
   );
 };
 
-export default ProductsOfTheMonth;
+export default memo(ProductsOfTheMonth);

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, memo } from "react";
 import { motion } from "framer-motion";
 import { UI_TEXT } from "../../constants";
 
@@ -75,4 +75,4 @@ const ClothingCard: React.FC<ClothingCardProps> = ({
   );
 };
 
-export default ClothingCard;
+export default memo(ClothingCard);

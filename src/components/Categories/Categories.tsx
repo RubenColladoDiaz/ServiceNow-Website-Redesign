@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import { NavLink } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useProductImageContext, useIconImageContext } from "../../hooks";
@@ -54,4 +54,4 @@ const Categories: React.FC = () => {
   );
 };
 
-export default Categories;
+export default memo(Categories);
